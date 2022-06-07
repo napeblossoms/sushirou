@@ -15,6 +15,10 @@ class Public::PostSushisController < ApplicationController
     redirect_to public_post_sushis_path
 
   end
+  
+  def index
+    @post_sushis = PostSushi.all
+  end
 
   def show
   end

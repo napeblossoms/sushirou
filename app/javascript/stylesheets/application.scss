@@ -1,10 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-ul {
-  list-style: none;
+/*public/post_sushi#index(topページ)*/
+.card {
+  margin: 0 50px 50px 50px;
 }
 
+/*public/end_user#show*/
 .card-container {
   width: 320px;
   height: 520px;

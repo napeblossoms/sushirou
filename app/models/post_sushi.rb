@@ -25,5 +25,13 @@ class PostSushi < ApplicationRecord
     "落ち着いた雰囲気":0,"気軽に入れる":1,"記念日にぴったり":2
   },_prefix: true
 
+   def get_image
+    unless image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    image
+   end
+
 
 end

@@ -5,7 +5,7 @@ class CreatePostSushis < ActiveRecord::Migration[6.1]
       t.string "name", null: false
       t.integer "region", default: 0, null: false
       t.integer "prefecture", default: 0, null: false
-      t.integer "municipalities", null: false
+      t.string "municipalities", null: false
       t.integer "price", default: 0, null: false
       t.integer "atmosphere", default: 0, null: false
       t.integer "lunch_dinner", default: 0, null: false
