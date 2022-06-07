@@ -11,15 +11,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <main class="mb-auto">
-
-  </main>
-
   <body>
-     <header>
+     <header class="shadow-sm">
+       <nav class="navbar navbar-expand-lg">
+          <div class="container">
        <% if end_user_signed_in? %>
          <li>
            <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
+         </li>
+
+         <li>
+           <%= link_to "マイページ" %>
          </li>
        <% else %>
          <li>
@@ -29,7 +31,26 @@
           <%= link_to "ログイン", new_end_user_session_path %>
          </li>
        <% end %>
+        </div>
+      </nav>
     </header>
-    <%= yield %>
+
+
+    <main class="mb-auto">
+      <div class="container">
+      <%= yield %>
+      </div>
+
+    </main>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class ="mx-auto">
+          <p>© 2022 Sushirou! from Meta</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
