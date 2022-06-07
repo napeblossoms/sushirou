@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Sushirou</title>
@@ -13,11 +14,19 @@
 
   <body>
      <header class="shadow-sm">
-       <nav class="navbar navbar-expand-lg">
+       <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
        <% if end_user_signed_in? %>
          <li>
-           <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
+           <%= link_to destroy_end_user_session_path, method: :delete do %>
+           <i class="fas fa-sign-out-alt"></i> Log out
+           <% end %>
          </li>
 
          <li>
@@ -31,16 +40,16 @@
           <%= link_to "ログイン", new_end_user_session_path %>
          </li>
        <% end %>
+          </ul>
+          </div>
         </div>
       </nav>
-    </header>
+     </header>
 
 
-    <main class="mb-auto">
-      <div class="container">
+
+    <main class="mb-auto my-5">
       <%= yield %>
-      </div>
-
     </main>
 
     <footer>

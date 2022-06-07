@@ -8,17 +8,22 @@
   <%= f.text_field :name,placeholder: "すしろう" %><br>
 
   <%= f.label :region, "地方" %><br>
-  <%= f.select :region, options_for_select(PostSushi.regions).keys, {prompt: "選択してください"}, class: "prefecture-select" %><br>
+  <%= f.select :region, options_for_select(PostSushi.regions), {prompt: "選択してください"}, class: "prefecture-select" %><br>
 
   <%= f.label :prefecture, "都道府県" %><br>
-  <%= f.select :prefecture, options_for_select(PostSushi.prefectures).keys, {prompt: "選択してください"}, class: "prefecture-select" %><br>
+  <%= f.select :prefecture, options_for_select(PostSushi.prefectures), {prompt: "選択してください"}, class: "prefecture-select" %><br>
 
   <%= f.label :municipalities, "市区町村" %><br>
   <%= f.text_field :municipalities, placeholder: "渋谷区"%><br>
 
   <%= f.label :price, "一人当たりの値段" %><br>
-  <%= f.select :price, options_for_select(PostSushi.prices).keys, {prompt: "選択してください"}, class: "prefecture-select" %><br>
+  <%= f.select :price, options_for_select(PostSushi.prices), {prompt: "選択してください"}, class: "prefecture-select" %><br>
 
+  <%= f.label :atmosphere, "雰囲気" %><br>
+  <%= f.select :atmosphere, options_for_select(PostSushi.atmospheres), {prompt: "選択してください"}, class: "prefecture-select" %><br>
+
+　<%= f.label :name, "感想" %><br>
+  <%= f.text_field :memo,placeholder: "感想" %><br>
 
   <%= f.submit '投稿' %>
 <% end %>
