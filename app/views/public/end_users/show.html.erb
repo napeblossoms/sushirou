@@ -4,17 +4,17 @@
      <div class="col-lg-4" style="background-color: orange;">
        <div class="card-container">
          <div class="card-headre">
-           <figure class="image">
-           <%= image_tag @end_user.get_profile_image(200,200) %>
+           <figure class="image ">
+           <%= image_tag @end_user.get_profile_image(300,300), class:"d-block mx-auto mt-3 rounded-circle"; %>
            </figure>
          </div>
          <div class="card-body">
-           <h4 class="name">
+           <h3 class="name">
              <strong><%= @end_user.name %></strong>
-           </h4>
-           <h2 class="introduction">
-            <%= @end_user.introduction %>
-           </h2>
+           </h3>
+             <div class = "introduction">
+               <p><%= @end_user.introduction %></p>
+             </div>
             <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user.id) %></p>
          </div>
        </div>
