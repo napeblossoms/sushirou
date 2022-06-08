@@ -22,6 +22,7 @@ class Public::PostSushisController < ApplicationController
 
   def show
     @post_sushi = PostSushi.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def destroy

@@ -5,6 +5,7 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :post_sushis, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   has_one_attached :profile_image
 

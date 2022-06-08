@@ -1,3 +1,4 @@
+<!--寿司投稿詳細-->
 <div class="card" style="width: 30rem;">
   <%= image_tag @post_sushi.get_image %>
   <div class="card-body">
@@ -8,9 +9,31 @@
     <p class="card-text2">一人あたりの値段：<%= @post_sushi.price %></p>
     <p class="card-text2">お店の雰囲気：<%= @post_sushi.atmosphere %></p>
     <p class="card-text2">感想：<%= @post_sushi.memo %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+   <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
+
+<!--コメント機能-->
+ <!--表示されるコメント情報-->
+    <div class= "comment">
+       <% @post_sushi.post_comments.each do |post_comment| %>
+         <%= post_comment.end_user.name %>
+         <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+
+         <% if post_comment.end_user == current_end_user %>
+           <%= link_to "コメント削除",  public_post_sushi_post_comment_path(post_comment.post_sushi, post_comment), method: :delete %>
+         <% end %>
+       <% end %>
+    </div>
+ <!--コメントするボックス-->
+    <div>
+      <%= form_with model: [@post_sushi, @post_comment], url: public_post_sushi_post_comments_path(@post_sushi), method: :post do |f| %>
+        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %><br>
+        <%= f.submit "送信する" %>
+       <% end %>
+    </div>
+
+<!--投稿の削除-->
     <% if @post_sushi.end_user == current_end_user %>
-      <%= link_to "削除", public_post_sushi_path(@post_sushi), method: :delete %>
+      <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete %>
     <% end %>
   </div>
 </div>
