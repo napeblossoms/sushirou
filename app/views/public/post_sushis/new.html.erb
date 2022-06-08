@@ -1,4 +1,6 @@
-<h1>新規投稿</h1>
+<div class = "container">
+   <div class ="row my-5 d-flex justify-content-center">
+　　<div class="form">
 <%= form_with model: @post_sushi,url: public_post_sushis_path, method: :post do |f| %>
   <%= f.label :image, "画像" %><br>
   <%= f.file_field :image, accept: "image/*" %><br>
@@ -27,3 +29,8 @@
 
   <%= f.submit '投稿' %>
 <% end %>
+
+
+    </div>
+  </div>
+</div>
