@@ -1,21 +1,21 @@
 <div class="row d-flex flex-wrap">
-<% @post_sushis.each do |post_sushi| %>
-<div class="card" style="width: 20rem;">
-  <%= image_tag post_sushi.get_image %>
-  <div class="card-body">
-    <h5 class="card-title">
-      <%= link_to public_post_sushi_path(post_sushi.id) do %>
-        <strong><%= post_sushi.name %></strong>
-      <% end %>
-    </h5>
-    <p class="card-text1"><%= post_sushi.region %>地方</p>
-    <p class="card-text2"><%= post_sushi.prefecture %></p>
-    <p class="card-text2"><%= post_sushi.municipalities %></p>
-    <p class="card-text2">一人あたりの値段：<%= post_sushi.price %></p>
-    <p class="card-text2">お店の雰囲気：<%= post_sushi.atmosphere %></p>
-    <p class="card-text2">感想：<%= post_sushi.memo %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<% end %>
+  <% @post_sushis.each do |post_sushi| %>
+    <div class="card" style="width: 20rem;">
+      <%= image_tag post_sushi.get_image %>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= link_to public_post_sushi_path(post_sushi.id) do %>
+            <strong><%= post_sushi.name %></strong>
+          <% end %>
+        </h5>
+          <p class="card-text1"><%= post_sushi.region %>地方</p>
+          <p class="card-text2"><%= post_sushi.prefecture %></p>
+          <p class="card-text2"><%= post_sushi.municipalities %></p>
+          <p class="card-text2">一人あたりの値段：<%= post_sushi.price %></p>
+          <p class="card-text2">お店の雰囲気：<%= post_sushi.atmosphere %></p>
+          <p class="card-text2">感想：<%= post_sushi.memo %></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  <% end %>
 </div>

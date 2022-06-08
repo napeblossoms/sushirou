@@ -1,15 +1,46 @@
-<div class="card-container">
-  <div class="card-headre">
-    <figure class="image">
-      <%= image_tag @end_user.get_profile_image(200,200) %>
-    </figure>
-  </div>
-  <div class="card-body">
-    <h4 class="name">
-     <strong><%= @end_user.name %></strong>
-    </h4>
-    <h2 class="introduction">
-      <%= @end_user.introduction %>
-    </h2>
-  </div>
+<div class="container">
+   <div class="row">
+
+     <div class="col-lg-4" style="background-color: orange;">
+       <div class="card-container">
+         <div class="card-headre">
+           <figure class="image">
+           <%= image_tag @end_user.get_profile_image(200,200) %>
+           </figure>
+         </div>
+         <div class="card-body">
+           <h4 class="name">
+             <strong><%= @end_user.name %></strong>
+           </h4>
+           <h2 class="introduction">
+            <%= @end_user.introduction %>
+           </h2>
+            <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user.id) %></p>
+         </div>
+       </div>
+     </diV>
+
+
+     <div class="col-lg-8" style="background-color: blue;">
+       <% @post_sushis.each do |post_sushi| %>
+        <div class="card" style="width: 20rem;">
+          <%= image_tag post_sushi.get_image %>
+          <div class="card-body">
+            <h5 class="card-title">
+            <%= link_to public_post_sushi_path(post_sushi.id) do %>
+              <strong><%= post_sushi.name %></strong>
+            <% end %>
+            </h5>
+              <p class="card-text1"><%= post_sushi.region %>地方</p>
+              <p class="card-text2"><%= post_sushi.prefecture %></p>
+              <p class="card-text2"><%= post_sushi.municipalities %></p>
+              <p class="card-text2">一人あたりの値段：<%= post_sushi.price %></p>
+              <p class="card-text2">お店の雰囲気：<%= post_sushi.atmosphere %></p>
+              <p class="card-text2">感想：<%= post_sushi.memo %></p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+         </div>
+       <% end %>
+     </div>
+  </diV>
 </div>
