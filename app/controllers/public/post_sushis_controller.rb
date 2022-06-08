@@ -15,12 +15,19 @@ class Public::PostSushisController < ApplicationController
     redirect_to public_post_sushis_path
 
   end
-  
+
   def index
     @post_sushis = PostSushi.all
   end
 
   def show
+    @post_sushi = PostSushi.find(params[:id])
+  end
+
+  def destroy
+    @post_sushi =PostSushi.find(params[:id])
+    @post_sushi.destroy
+    redirect_to public_post_sushis_path
   end
 
   def edit

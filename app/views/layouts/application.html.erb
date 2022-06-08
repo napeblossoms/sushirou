@@ -22,14 +22,17 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
        <% if end_user_signed_in? %>
+       　<li>
+           <%= link_to "Home", public_post_sushis_path %>
+         </li>
+
+         <li>
+           <%= link_to "マイページ", public_end_user_path(current_end_user.id) %>
+         </li>
          <li>
            <%= link_to destroy_end_user_session_path, method: :delete do %>
            <i class="fas fa-sign-out-alt"></i> Log out
            <% end %>
-         </li>
-
-         <li>
-           <%= link_to "マイページ" %>
          </li>
        <% else %>
          <li>
