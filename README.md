@@ -1,24 +1,43 @@
-# README
+# スシロウ！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+寿司を食べよう！寿司を知ろう！寿司で集まろう！をテーマにした寿司好きな人のためのSNSアプリ。<br>
+気軽にお寿司を食べたい日、特別な記念日にお寿司を食べたい日、いろいろなシチュエーションに合わせて、<br>
+おいしいお寿司屋さんを見つけましょう！
 
-* Ruby version
 
-* System dependencies
+### テーマを選んだ理由
+日本人の好きな食べ物ランキングで必ず上位にランクインするお寿司。<br>
+こんなにも人気があるお寿司ですが、寿司だけに特化し、寿司好きな人と気軽にコミュニケーションをとれるアプリはなかなか見かけません。<br>
+そこで寿司好きの人達が気軽に自分のお気に入りのお寿司屋さんを投稿でき、見つけ、繋がれるＳＮＳを開発したいと思いました。<br>
+また、グルメサイトではあまり紹介されていないけど、おいしいお寿司屋さんがまだまだたくさん眠っているのも事実です。<br>
+寿司好きな人々が気軽にお気に入りのお寿司屋さんを投稿することで、知られざるすてきなお店を知るきっかけになればと思います。<br>
 
-* Configuration
 
-* Database creation
+### ターゲットユーザ
+ - お寿司が大好きでお寿司屋さんを新規開拓したい人
+ - おいしいお寿司屋さんを知りたい人
+ - お寿司好きを見つけたい人
 
-* Database initialization
+### 主な利用シーン
+ - 日々のご褒美に少し高級なお寿司屋さんに行きたいとき
+ - 軽くお寿司を食べたいとき
+ - 大切な人との記念日ディナーでお寿司を食べるとき
+ - 友達においしいお寿司屋さんを紹介したいとき
+ - 出張先でお寿司が食べたいけどおいしいお寿司屋さんを知らないとき
+ - 寿司好きと交流して情報交換をしたいとき
 
-* How to run the test suite
+## 設計書
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+使用検討中です。
