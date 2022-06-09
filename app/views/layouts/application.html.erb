@@ -13,7 +13,7 @@
 
   <body>
      <header class="shadow-sm">
-       <nav class="navbar navbar-expand-lg navbar-light">
+       <nav class="navbar navbar-expand-lg navbar-light p-3">
           <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,17 +23,17 @@
               <ul class="navbar-nav ml-auto">
        <% if end_user_signed_in? %>
        　<li>
-           <%= link_to "Home", public_post_sushis_path %>
+           <%= link_to "Home", public_post_sushis_path, class:"nav-link text-light" %>
          </li>
 
          <li>
-           <%= link_to "マイページ", public_end_user_path(current_end_user.id) %>
+           <%= link_to "マイページ", public_end_user_path(current_end_user.id), class:"nav-link text-light" %>
          </li>
          <li>
-           <%= link_to "新規投稿", new_public_post_sushi_path %>
+           <%= link_to "新規投稿", new_public_post_sushi_path, class:"nav-link text-light" %>
          </li>
          <li>
-           <%= link_to destroy_end_user_session_path, method: :delete do %>
+           <%= link_to destroy_end_user_session_path, method: :delete, class:"nav-link text-light" do %>
            <i class="fas fa-sign-out-alt"></i> Log out
            <% end %>
          </li>
@@ -52,10 +52,18 @@
      </header>
 
 
-
-    <main class="my-5">
+    <main>
+      <div class="row">
+        <div class="col-2">
+          <div class= "sidebar_fixed">
+          </div>
+        </div>
+        <div class= "col mt-5">
       <%= yield %>
+        </div>
+      </div>
     </main>
+
 
     <footer>
       <div class="container mt-5">
