@@ -1,9 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+ /*main全体*/
+ .main {
+  background-color: #F5DEB3;
+ }
 
 .shadow-sm {
   background-color: #163054;
-  border-bottom: 3px solid #78868f;;
+  border-bottom: 2px solid #FAEBD7;
 }
 /*sidebar*/
 .col-2 {

@@ -9,6 +9,9 @@
     <p class="card-text2">一人あたりの値段：<%= @post_sushi.price %></p>
     <p class="card-text2">お店の雰囲気：<%= @post_sushi.atmosphere %></p>
     <p class="card-text2">感想：<%= @post_sushi.memo %></p>
+     <%= link_to public_end_user_path(@post_sushi.end_user_id) do %>
+        <%= @post_sushi.end_user.name %>
+     <% end %>
    <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
 
 <!--コメント機能-->
