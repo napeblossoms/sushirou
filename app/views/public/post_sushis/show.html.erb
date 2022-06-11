@@ -40,13 +40,13 @@
     <% if @post_sushi.favorited_by?(current_end_user) %>
       <p>
         <%= link_to  public_post_sushi_favorites_path(@post_sushi), method: :delete do %>
-           <i class="fa-regular fa-hand-heart"></i><%= @post_sushi.favorites.count %> タベタイ！
+          <i class="fas fa-fish"></i><%= @post_sushi.favorites.count %> タベタイ！
         <% end %>
       </p>
     <% else %>
       <p>
         <%= link_to public_post_sushi_favorites_path(@post_sushi), method: :post do %>
-          <i class="fa-regular fa-hand-heart"></i><%= @post_sushi.favorites.count %> タベタイ！
+          <i class="far fa-fish"></i><%= @post_sushi.favorites.count %> タベタイ！
         <% end %>
       </p>
     <% end %>

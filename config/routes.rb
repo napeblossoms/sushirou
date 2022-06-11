@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'relationships/create'
+    get 'relationships/destroy'
+  end
   devise_for :admins
   devise_for :end_users
   root to: "public/post_sushis#index"
