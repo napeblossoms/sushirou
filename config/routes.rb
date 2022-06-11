@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :public do
    resources :post_sushis, only: [:new, :create, :index, :edit, :show, :update, :destroy] do
      resources :post_comments, only: [:create, :destroy]
+     resource :favorites, only: [:create, :destroy]
    end
 
    resources :end_users, only: [:edit, :show, :update]

@@ -36,9 +36,27 @@
     </div>
   </diV>
 
+ <!--タベタイ機能-->
+    <% if @post_sushi.favorited_by?(current_end_user) %>
+      <p>
+        <%= link_to  public_post_sushi_favorites_path(@post_sushi), method: :delete do %>
+           <i class="fa-regular fa-hand-heart"></i><%= @post_sushi.favorites.count %> タベタイ！
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to public_post_sushi_favorites_path(@post_sushi), method: :post do %>
+          <i class="fa-regular fa-hand-heart"></i><%= @post_sushi.favorites.count %> タベタイ！
+        <% end %>
+      </p>
+    <% end %>
+
 <!--投稿の削除-->
     <% if @post_sushi.end_user == current_end_user %>
       <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete %>
     <% end %>
+
+
   </div>
 </div>
+

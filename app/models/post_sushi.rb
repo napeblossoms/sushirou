@@ -2,6 +2,7 @@ class PostSushi < ApplicationRecord
   has_one_attached :image
   belongs_to :end_user
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   enum region: {
    北海道:0,東北:1,関東:2,中部:3,近畿:4,中国:5,四国:6,九州:7
@@ -25,6 +26,10 @@ class PostSushi < ApplicationRecord
   enum atmosphere: {
     "落ち着いた雰囲気":0,"気軽に入れる":1,"記念日にぴったり":2
   },_prefix: true
+
+   def favorited_by?(end_user)
+    favorites.exists?(end_user_id: end_user.id)
+   end
 
    def get_image
     unless image.attached?
