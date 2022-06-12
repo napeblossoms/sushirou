@@ -2,7 +2,7 @@ class Public::EndUsersController < ApplicationController
   def show
     @end_user = EndUser.find(params[:id])
     @post_sushis = @end_user.post_sushis
-
+    
   end
 
   def edit

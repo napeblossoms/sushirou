@@ -1,10 +1,10 @@
 <div class="container">
    <div class="row">
-
+     <!--ユーザーインフォメーション-->
      <div class="col-lg-4" style="background-color: orange;">
        <div class="card-container">
          <div class="card-headre">
-           <figure class="image ">
+           <figure class="image">
            <%= image_tag @end_user.get_profile_image(300,300), class:"d-block mx-auto mt-3 rounded-circle"; %>
            </figure>
          </div>
@@ -15,9 +15,23 @@
              <div class = "introduction">
                <p><%= @end_user.introduction %></p>
              </div>
-            <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user.id) %></p>
+
+            <% if @end_user == current_end_user %>
+              <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user.id) %></p>
+            <% end %>
 
             <!--フォロー・フォロワー機能-->
+            <table class = 'table'>
+             <thead align="center">
+               <th>follow</th>
+               <th>follower</th>
+             </thead>
+             <tbody align="center">
+               <td><%= link_to @end_user.followings.count,  public_end_user_followings_path(@end_user.id) %></td>
+               <td><%= link_to @end_user.followers.count, public_end_user_followers_path(@end_user.id) %></td>
+             </tbody>
+            </table>
+
            <% if current_end_user != @end_user %>
             <% if current_end_user.following?(@end_user) %>
               <%= link_to "フォロー外す", public_end_user_relationships_path(@end_user.id), method: :delete %>
@@ -30,8 +44,8 @@
        </div>
      </diV>
 
-
-     <div class="col-lg-8" style="background-color: blue;">
+　　<!--ユーザーの寿司投稿-->
+     <div class="col-lg-7" style="background-color: blue;">
        <% @post_sushis.each do |post_sushi| %>
         <div class="card" style="width: 20rem;">
           <%= image_tag post_sushi.get_image %>
