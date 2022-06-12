@@ -11,8 +11,8 @@ class EndUser < ApplicationRecord
   #フォロー・フォロワー機能
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #フォローした
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォローされた
-  has_many :followings, through: :relationships, source: :followed
-  has_many :followers, through: :reverse_of_relationships, source: :follower
+  has_many :followings, through: :relationships, source: :followed #フォローしている人
+  has_many :followers, through: :reverse_of_relationships, source: :follower #フォローされている人
 
   has_one_attached :profile_image
 
