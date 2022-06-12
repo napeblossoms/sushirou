@@ -16,6 +16,16 @@
                <p><%= @end_user.introduction %></p>
              </div>
             <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user.id) %></p>
+
+            <!--フォロー・フォロワー機能-->
+           <% if current_end_user != @end_user %>
+            <% if current_end_user.following?(@end_user) %>
+              <%= link_to "フォロー外す", public_end_user_relationships_path(@end_user.id), method: :delete %>
+            <% else %>
+              <%= link_to "フォローする", public_end_user_relationships_path(@end_user.id), method: :post %>
+            <% end %>
+           <% end %>
+
          </div>
        </div>
      </diV>

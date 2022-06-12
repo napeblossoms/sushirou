@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'relationships/create'
-    get 'relationships/destroy'
-  end
   devise_for :admins
   devise_for :end_users
   root to: "public/post_sushis#index"
@@ -13,6 +9,11 @@ Rails.application.routes.draw do
      resource :favorites, only: [:create, :destroy]
    end
 
-   resources :end_users, only: [:edit, :show, :update]
+   resources :end_users, only: [:edit, :show, :update] do
+     resource :relationships, only: [:create, :destroy]
+       get 'followings' => 'relationships#followings', as: 'followings'
+       get 'followers' => 'relationships#followers', as: 'followers'
+   end
+
   end
 end

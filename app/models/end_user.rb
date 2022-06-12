@@ -6,9 +6,29 @@ class EndUser < ApplicationRecord
 
   has_many :post_sushis, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  #いいね(タベタイ)機能
   has_many :favorites, dependent: :destroy
+  #フォロー・フォロワー機能
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #フォローした
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォローされた
+  has_many :followings, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_of_relationships, source: :follower
 
   has_one_attached :profile_image
+
+  #フォローしたときの処理
+  def follow(end_user_id)
+    relationships.create(followed_id: end_user_id)
+  end
+  #フォローを外すときの処理
+  def unfollow(end_user_id)
+    relationships.find_by(followed_id: end_user_id).destroy
+  end
+  #フォローしているかの判定
+  def following?(end_user)
+    followings.include?(end_user)
+  end
+
 
   def get_profile_image(width,height)
     unless profile_image.attached?

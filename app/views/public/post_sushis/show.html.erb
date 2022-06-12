@@ -9,7 +9,7 @@
     <p class="card-text2">一人あたりの値段：<%= @post_sushi.price %></p>
     <p class="card-text2">お店の雰囲気：<%= @post_sushi.atmosphere %></p>
     <p class="card-text2">感想：<%= @post_sushi.memo %></p>
-     <%= link_to public_end_user_path(@post_sushi.end_user_id) do %>
+     投稿者：<%= link_to public_end_user_path(@post_sushi.end_user_id) do %>
         <%= @post_sushi.end_user.name %>
      <% end %>
    <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
@@ -40,13 +40,13 @@
     <% if @post_sushi.favorited_by?(current_end_user) %>
       <p>
         <%= link_to  public_post_sushi_favorites_path(@post_sushi), method: :delete do %>
-          <i class="fas fa-fish"></i><%= @post_sushi.favorites.count %> タベタイ！
+          <i class="fas fa-thumbs-up"></i>タベタイ！
         <% end %>
       </p>
     <% else %>
       <p>
         <%= link_to public_post_sushi_favorites_path(@post_sushi), method: :post do %>
-          <i class="far fa-fish"></i><%= @post_sushi.favorites.count %> タベタイ！
+          <i class="far fa-thumbs-up"></i>タベタイ！
         <% end %>
       </p>
     <% end %>
