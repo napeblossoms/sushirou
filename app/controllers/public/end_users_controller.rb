@@ -21,6 +21,7 @@ class Public::EndUsersController < ApplicationController
     @favorite_post_sushis = PostSushi.find(favorites)
   end
 
+
     private
   def end_user_params
     params.require(:end_user).permit(:name, :introduction, :profile_image)

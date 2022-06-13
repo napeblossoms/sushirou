@@ -8,6 +8,9 @@ Rails.application.routes.draw do
      resources :post_comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
     #   get 'followed_post_sushis' => 'post_sushis#followed_post_sushis', as: 'followed_post_sushis'
+      member do
+         get :followings
+     end
    end
 
    resources :end_users, only: [:edit, :show, :update] do
@@ -17,7 +20,10 @@ Rails.application.routes.draw do
 
      member do
          get :favorites
-       end
+     end
+
+
+
    end
 
   end

@@ -30,11 +30,13 @@ class Public::PostSushisController < ApplicationController
     @post_sushi.destroy
     redirect_to public_post_sushis_path
   end
-  
-  # def followed_post_sushis
-  #   @end_user = current_end_user
-  #   @end_users = @end_user.followings.order('created_at desc') #フォローしている人の投稿を投稿順にする
-  # end
+
+  def followings #フォローしているユーザーすべての投稿を取得
+     @post_sushis = PostSushi.where(end_user_id: [*current_end_user.following_ids])
+  #   @end_user = EndUser.find(params[:id])
+  #   followings = Followings.where(post_sushi_id: @end_user.id).pluck(:post_sushi_id)
+  #   @followings_post_sushis = PostSushi.find(followings)
+  end
 
   def edit
   end

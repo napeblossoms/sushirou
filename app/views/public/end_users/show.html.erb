@@ -39,8 +39,9 @@
               <%= link_to "フォローする", public_end_user_relationships_path(@end_user.id), method: :post %>
             <% end %>
            <% end %>
-           
+
            <p><%=link_to"お気に入り寿司投稿",favorites_public_end_user_path(@end_user) %></p>
+           <p><%=link_to"フォロワー寿司投稿", followings_public_post_sushi_path(@end_user) %></p>
 
          </div>
        </div>
