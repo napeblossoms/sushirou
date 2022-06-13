@@ -1,14 +1,21 @@
 <h2>スシ検索</h2>
 <%= search_form_for @q, url: search_public_post_sushis_path do |f| %>
-  <%= f.label :name %>
-  <%= f.search_field :name_cont %>
+  <%= f.label :店名 %>
+  <%= f.search_field :name_cont %><br>
+
+  <%= f.select :region_cont, PostSushi.regions.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
+  <%= f.select :prefecture_cont, PostSushi.prefectures.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
+  <%= f.select :price_cont, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
+  <%= f.select :atmosphere_cont, PostSushi.atmospheres.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
+  <%= f.search_field :municipalities_cont %>
  <%= f.submit %>
 <% end %>
 
-<div class="row d-flex flex-wrap">
+<div class="row">
   <% @post_sushis.each do |post_sushi| %>
-    <div class="card" style="width: 20rem;">
-      <%= image_tag post_sushi.get_image %>
+  <div class="col-lg-3">
+    <div class="card w-100 mb-4">
+      <%= image_tag post_sushi.get_image, class: 'sushi-img' %>
       <div class="card-body">
         <h5 class="card-title">
           <%= link_to public_post_sushi_path(post_sushi.id) do %>
@@ -24,6 +31,7 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
           <p>ユーザーネーム：<%= post_sushi.end_user.name %></p>
       </div>
+    </div>
     </div>
   <% end %>
 </div>

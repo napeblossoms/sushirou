@@ -3,6 +3,11 @@
  *= require_self
  */
 
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 /*logo*/
@@ -18,17 +23,18 @@
   background-color: #163054;
   border-bottom: 2px solid #FAEBD7;
 }
-/*sidebar*/
-.col-2 {
-  background-color: #163054;
-}
 .sidebar_fixed {
   position: sticky;/*sidebarの固定*/
 }
 
 /*public/post_sushi#index(topページ)*/
-.card {
-  margin: 0 50px 50px 50px;
+// .card {
+//   margin: 0 50px 50px 50px;
+// }
+
+.sushi-img {
+  height: 250px;
+  object-fit: cover;
 }
 
 strong {
@@ -62,4 +68,7 @@ strong {
 }
 
 
-
+/* Fix: Bootstrap .row Overflow */
+.row {
+  margin: 0!important;
+}

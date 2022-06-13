@@ -1,5 +1,5 @@
 class Public::PostSushisController < ApplicationController
-  before_action :set_q, only: [:index, :search]
+  before_action :search_sushi, only: [:index, :search]
 
   def new
     @post_sushi = PostSushi.new
@@ -41,6 +41,7 @@ class Public::PostSushisController < ApplicationController
   end
 
   def search
+    @q = PostSushi.ransack(params[:q])
     @results = @q.result
   end
 
@@ -53,7 +54,7 @@ class Public::PostSushisController < ApplicationController
 
   private
 
-  def set_q
+  def search_sushi
     @q = PostSushi.ransack(params[:q])
   end
 
