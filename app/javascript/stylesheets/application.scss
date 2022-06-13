@@ -32,11 +32,13 @@ html, body {
 //   margin: 0 50px 50px 50px;
 // }
 
+/*すしの写真サイズ*/
 .sushi-img {
   height: 250px;
   object-fit: cover;
 }
 
+/*文字のマーカー*/
 strong {
   background: linear-gradient(180deg, #FCFCFA 0%, #FCFCFA 70%, #E2C3C2 70%, #E2C3C2 100%);
 }

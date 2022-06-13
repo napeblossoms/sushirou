@@ -1,17 +1,60 @@
+<!--検索機能-->
 <h2>スシ検索</h2>
 <%= search_form_for @q, url: search_public_post_sushis_path do |f| %>
-  <%= f.label :店名 %>
-  <%= f.search_field :name_cont %><br>
+<div class="row">
+ <div class="col-sm-6">
+   <div class="form-group">
+    <label class="col-sm-4 control-label "for="">店名</label>
+     <div class= "col-sm-8">
+      <%= f.search_field :name_cont,placeholder: "店名キーワード",class: 'form-control' %>
+     </div>
+   </div>
 
-  <%= f.select :region_cont, PostSushi.regions.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
-  <%= f.select :prefecture_cont, PostSushi.prefectures.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
-  <%= f.select :price_cont, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
-  <%= f.select :atmosphere_cont, PostSushi.atmospheres.map { |k, v| [k, v] }, { include_blank: '指定なし' } %>
-  <%= f.search_field :municipalities_cont %>
- <%= f.submit %>
+   <div class="form-group">
+    <label class="col-sm-4 control-label "for="">地方</label>
+     <div class= "col-sm-8">
+  　　<%= f.select :region_cont, PostSushi.regions.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
+     </div>
+   </div>
+
+   <div class="form-group">
+    <label class="col-sm-4 control-label "for="">都道府県</label>
+     <div class= "col-sm-8">
+       <%= f.select :prefecture_cont, PostSushi.prefectures.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
+     </div>
+   </div>
+
+   <div class="form-group">
+    <label class="col-sm-4 control-label "for="">市区町村</label>
+     <div class= "col-sm-8">
+        <%= f.search_field :municipalities_cont ,class: 'form-control' %>
+     </div>
+   </div>
+  </div>
+
+   <div class="col-sm-6">
+     <div class="form-group">
+      <label class="col-sm-4 control-label" for="">一人あたりの金額</label>
+       <div class="col-sm-8">
+         <%= f.select :price_cont, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
+       </div>
+     </div>
+
+     <div class="form-group">
+      <label class="col-sm-4 control-label" for="">一人あたりの金額</label>
+       <div class="col-sm-8">
+       　　 <%= f.select :atmosphere_cont, PostSushi.atmospheres.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
+       </div>
+     </div>
+
+     <div class="col-sm-12 row text-center">
+      <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> 検索</button>
+     </div>
 <% end %>
 
-<div class="row">
+</div>
+
+<div class="row mt-3">
   <% @post_sushis.each do |post_sushi| %>
   <div class="col-lg-3">
     <div class="card w-100 mb-4">
