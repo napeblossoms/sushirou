@@ -51,7 +51,7 @@
       </p>
     <% end %>
 
-<!--投稿の削除-->
+ <!--投稿の削除-->
     <% if @post_sushi.end_user == current_end_user %>
       <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete %>
     <% end %>
