@@ -1,10 +1,12 @@
 class Public::PostSushisController < ApplicationController
+  before_action :set_q, only: [:index, :search]
+
   def new
     @post_sushi = PostSushi.new
   end
 
   def create
-    #パラメーターを定義する前にパラメータの内容欲しいため階層構造で定義
+    #パラメーターを定義する前にパラメータの内容が欲しいため階層構造で定義
     params[:post_sushi][:region] = params[:post_sushi][:region].to_i
     params[:post_sushi][:prefecture] = params[:post_sushi][:prefecture].to_i
     params[:post_sushi][:price] = params[:post_sushi][:price].to_i
@@ -38,13 +40,22 @@ class Public::PostSushisController < ApplicationController
   #   @followings_post_sushis = PostSushi.find(followings)
   end
 
+  def search
+    @results = @q.result
+  end
+
   def edit
   end
 
   def update
   end
 
+
   private
+
+  def set_q
+    @q = PostSushi.ransack(params[:q])
+  end
 
   def post_sushi_params
     params.require(:post_sushi).permit(:image, :end_user_id, :name, :region, :prefecture, :municipalities, :price, :atmosphere, :lunch_dinner, :memo)
