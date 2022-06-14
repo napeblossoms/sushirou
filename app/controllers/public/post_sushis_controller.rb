@@ -35,9 +35,6 @@ class Public::PostSushisController < ApplicationController
 
   def followings #フォローしているユーザーすべての投稿を取得
      @post_sushis = PostSushi.where(end_user_id: [*current_end_user.following_ids])
-  #   @end_user = EndUser.find(params[:id])
-  #   followings = Followings.where(post_sushi_id: @end_user.id).pluck(:post_sushi_id)
-  #   @followings_post_sushis = PostSushi.find(followings)
   end
 
   def search

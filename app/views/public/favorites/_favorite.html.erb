@@ -1,0 +1,13 @@
+    <% if post_sushi.favorited_by?(current_end_user) %>
+      <p>
+        <%= link_to  public_post_sushi_favorites_path(post_sushi), method: :delete, remote: true do %>
+          <i class="fas fa-thumbs-up"></i>タベタイ！
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to public_post_sushi_favorites_path(post_sushi), method: :post, remote: true do %>
+          <i class="far fa-thumbs-up"></i>タベタイ！
+        <% end %>
+      </p>
+    <% end %>
