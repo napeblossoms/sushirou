@@ -14,27 +14,16 @@
      <% end %>
    <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
 
-<!--コメント機能-->
- <!--表示されるコメント情報-->
- <div class= "comment_area">
-    <div class= "comment">
-       <% @post_sushi.post_comments.each do |post_comment| %>
-         <%= post_comment.end_user.name %>
-         <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+ <!--コメント機能-->
+ <!--コメント一覧-->
+ <div class="post_comments_buttons_<%= @post_sushi.id %>">
+   <%= render "public/post_comments/post_comments", post_sushi: @post_sushi %>
+ </div>
+ <!--コメントフォーム-->
+ <div>
+   <%= render "public/post_comments/form", post_sushi: @post_sushi, post_comment: @post_comment %>
+ </div>
 
-         <% if post_comment.end_user == current_end_user %>
-           <%= link_to "コメント削除",  public_post_sushi_post_comment_path(post_comment.post_sushi, post_comment), method: :delete %>
-         <% end %>
-       <% end %>
-    </div>
- <!--コメントするボックス-->
-    <div>
-      <%= form_with model: [@post_sushi, @post_comment], url: public_post_sushi_post_comments_path(@post_sushi), method: :post do |f| %>
-        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %><br>
-        <%= f.submit "送信する" %>
-       <% end %>
-    </div>
-  </diV>
 
  <!--タベタイ機能-->
  <div class="favorites_buttons_<%= @post_sushi.id %>">
