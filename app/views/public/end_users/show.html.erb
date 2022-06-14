@@ -16,8 +16,8 @@
                <p><%= @end_user.introduction %></p>
              </div>
 
-            <% if @end_user == current_end_user %>
-              <p><%= link_to "プロフィール編集", edit_public_end_user_path(@end_user.id) %></p>
+            <% if @end_user.name != "guestuser" && @end_user == current_end_user %> <!--ゲストユーザーではなくcurrentユーザーのときだけ編集OK-->
+              <p><%= link_to 'プロフィール編集',edit_public_end_user_path(@end_user)%></p>
             <% end %>
 
             <!--フォロー・フォロワー機能-->

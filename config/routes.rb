@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :end_users
+  devise_scope :end_user do #ゲストログイン
+      post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
+  end
+
   root to: "public/post_sushis#index" #TOPページ
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :public do
@@ -25,8 +29,6 @@ Rails.application.routes.draw do
      member do #いいねした投稿一覧
          get :favorites
      end
-
    end
-
   end
 end
