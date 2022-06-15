@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_end_user!
-
-
+ 
   def after_sign_in_path_for(resource_or_scope)
     if resource.is_a?(Admin)
       homes_path

@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+   before_action :authenticate_end_user!
   def create
     @post_sushi = PostSushi.find(params[:post_sushi_id])
     @favorite = current_end_user.favorites.new(post_sushi_id: @post_sushi.id)

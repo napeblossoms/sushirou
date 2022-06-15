@@ -1,4 +1,5 @@
 class Public::PostCommentsController < ApplicationController
+   before_action :authenticate_end_user!
   def create
     @post_sushi = PostSushi.find(params[:post_sushi_id])
     comment = PostComment.new(post_comment_params)

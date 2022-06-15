@@ -1,4 +1,5 @@
 class Public::PostSushisController < ApplicationController
+  before_action :authenticate_end_user!
   before_action :search_sushi, only: [:index, :search]
 
   def new
