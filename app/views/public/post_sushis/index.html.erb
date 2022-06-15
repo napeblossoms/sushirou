@@ -1,8 +1,8 @@
 <!--検索機能-->
 <div class ="row">
-  <div class= "col-lg-5">
-    <button type="button" class= "rounded shadow" data-toggle="modal" data-target="#exampleModal">
-     <i class="fas fa-sign-out-alt"></i>スシを検索する
+  <div class= "col-lg-5 mx-auto">
+    <button type="button" class= "rounded shadow w-100" data-toggle="modal" data-target="#exampleModal">
+     <i class="fas fa-search"></i>クリックしてスシを検索する
 　　</button>
   </div>
 </div>
@@ -40,6 +40,11 @@
         </div>
         
         <div class="form-group">
+         <%= f.label :lunch_dinner, "ランチorディナー" %>
+       　<%= f.select :lunch_dinner_cont, PostSushi.lunch_dinners.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
+        </div>
+        
+        <div class="form-group">
          <%= f.label :price, "一人当たりの金額" %>
        　<%= f.select :price_cont, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
@@ -73,6 +78,7 @@
           <p class="card-text1"><%= post_sushi.region %>地方</p>
           <p class="card-text2"><%= post_sushi.prefecture %></p>
           <p class="card-text2"><%= post_sushi.municipalities %></p>
+          <p class="card-text2">ランチorディナー：<%= post_sushi.lunch_dinner %></p>
           <p class="card-text2">一人あたりの値段：<%= post_sushi.price %></p>
           <p class="card-text2">お店の雰囲気：<%= post_sushi.atmosphere %></p>
           <p class="card-text2">感想：<%= post_sushi.memo %></p>

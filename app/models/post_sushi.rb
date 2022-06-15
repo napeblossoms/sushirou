@@ -26,6 +26,10 @@ class PostSushi < ApplicationRecord
   enum atmosphere: {
     "落ち着いた雰囲気":0,"気軽に入れる":1,"記念日にぴったり":2
   },_prefix: true
+  
+  enum lunch_dinner: {
+    "ランチ":0,"ディナー":1
+  },_prefix: true
 
    def favorited_by?(end_user)
     favorites.exists?(end_user_id: end_user.id)

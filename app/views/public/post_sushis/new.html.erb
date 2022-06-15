@@ -17,6 +17,9 @@
 
   <%= f.label :municipalities, "市区町村" %><br>
   <%= f.text_field :municipalities, placeholder: "渋谷区"%><br>
+  
+  <%= f.label :lunch_dinner, "ランチorディナー" %><br>
+  <%= f.select :lunch_dinner, options_for_select(PostSushi.lunch_dinners), {prompt: "選択してください"}, class: "prefecture-select" %><br>
 
   <%= f.label :price, "一人当たりの値段" %><br>
   <%= f.select :price, options_for_select(PostSushi.prices), {prompt: "選択してください"}, class: "prefecture-select" %><br>
