@@ -1,6 +1,6 @@
 <!--寿司投稿詳細-->
-<div class="card" style="width: 30rem;">
-  <%= image_tag @post_sushi.get_image %>
+<div class="card mx-auto" style="width: 30rem;">
+ <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
   <div class="card-body">
     <h5 class="card-title"><strong><%= @post_sushi.name %></strong></h5>
     <p class="card-text1"><%= @post_sushi.region %>地方</p>

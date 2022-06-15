@@ -78,9 +78,57 @@
 
     <main class = "main">
       <div class="row">
-        <div class="col-md-2" style="background-color: #163054;">
+        <div class="col-md-2" style="background-color: #163054;"> <!--サイドバー-->
             <a class="logo" href="/"><%= image_tag('PF_logo.png') %></a>
           <div class= "sidebar_fixed">
+    　　
+        <% if end_user_signed_in? %>
+        <ul style="list-style: none;">
+         <li>
+           <%= link_to public_post_sushis_path, class:"nav-link text-light" do %>
+           <i class="fas fa-home"></i>Home
+           <% end %>
+         </li>
+
+         <li>
+           <%= link_to public_end_user_path(current_end_user.id), class:"nav-link text-light" do %>
+           <i class="fas fa-sign-out-alt"></i> マイスシ
+           <% end %>
+         </li>
+         <li>
+           <%= link_to new_public_post_sushi_path, class:"nav-link text-light" do %>
+           <i class="fas fa-plus-circle"></i>新規スシ投稿
+           <% end %>
+         </li>
+          <li>
+           <%= link_to favorites_public_end_user_path(current_end_user.id), class:"nav-link text-light" do %>
+            <i class="fas fa-thumbs-up"></i>タベタイスシ
+           <% end %>
+         </li>
+         <li>
+           <%= link_to destroy_end_user_session_path, method: :delete, class:"nav-link text-light" do %>
+            <i class="fas fa-sign-out-alt"></i> Log out
+           <% end %>
+         </li>
+       <% elsif admin_signed_in? %>
+         <li>
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light" %>
+         </li>
+       <% else %>
+         <li>
+           <%= link_to "ゲストログイン", end_users_guest_sign_in_path, method: :post %>
+         </li>
+         <li>
+           <%= link_to "新規登録", new_end_user_registration_path %>
+         </li>
+         <li>
+          <%= link_to "ログイン", new_end_user_session_path %>
+         </li>
+         <li>
+          <%= link_to "管理者ログイン", admin_session_path %>
+         </li>
+        </ul> 
+       <% end %>
           </div>
         </div>
 

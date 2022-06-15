@@ -1,26 +1,21 @@
-<div class="container">
-   <div class="row">
-     <!--ユーザーインフォメーション-->
-     <div class="col-lg-4" style="background-color: orange;">
-       <div class="card-container">
-         <div class="card-headre">
-           <figure class="image">
-           <%= image_tag @end_user.get_profile_image(300,300), class:"d-block mx-auto mt-3 rounded-circle"; %>
-           </figure>
-         </div>
-         <div class="card-body">
-           <h3 class="name">
-             <strong><%= @end_user.name %></strong>
-           </h3>
-             <div class = "introduction">
-               <p><%= @end_user.introduction %></p>
-             </div>
-
+   <!--ユーザーインフォメーション-->
+<div class="card mx-auto rounded" style="width: 800px, height: 100px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag @end_user.get_profile_image, width: "100%",height: "100%" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title"><strong><%= @end_user.name %></strong></h3>
+        <div class="introduction">
+            <p><%= @end_user.introduction %></p>
+        </div>
+        
             <% if @end_user.name != "guestuser" && @end_user == current_end_user %> <!--ゲストユーザーではなくcurrentユーザーのときだけ編集OK-->
               <p><%= link_to 'プロフィール編集',edit_public_end_user_path(@end_user)%></p>
             <% end %>
-
-            <!--フォロー・フォロワー機能-->
+            
+            <div class= "follower">
             <table class = 'table'>
              <thead align="center">
                <th>follow</th>
@@ -31,28 +26,27 @@
                <td><%= link_to @end_user.followers.count, public_end_user_followers_path(@end_user.id) %></td>
              </tbody>
             </table>
-
-           <% if current_end_user != @end_user %>
+            </div>
+            
+            <% if current_end_user != @end_user %>
             <% if current_end_user.following?(@end_user) %>
               <%= link_to "フォロー外す", public_end_user_relationships_path(@end_user.id), method: :delete %>
             <% else %>
               <%= link_to "フォローする", public_end_user_relationships_path(@end_user.id), method: :post %>
             <% end %>
            <% end %>
-
-           <p><%=link_to"お気に入り寿司投稿",favorites_public_end_user_path(@end_user) %></p>
+           
            <p><%=link_to"フォロワー寿司投稿", followings_public_post_sushi_path(@end_user) %></p>
-
-         </div>
-       </div>
-     </diV>
-
+      </div>
+    </div>
+  </div>
+</div>
+    
 　　<!--ユーザーの寿司投稿-->
-     <div class="col-lg-7" style="background-color: blue;">
-         <div class="row">
+　　<div class="row mt-5 mx-auto">
        <% @post_sushis.each do |post_sushi| %>
-       <div class="col-lg-6">
-        <div class="card w-100 mb-2">
+       <div class="col-lg-3">
+        <div class="card w-100 mb-4">
           <%= image_tag post_sushi.get_image, class: 'sushi-img' %>
           <div class="card-body">
             <h5 class="card-title">
@@ -63,15 +57,14 @@
               <p class="card-text1"><%= post_sushi.region %>地方</p>
               <p class="card-text2"><%= post_sushi.prefecture %></p>
               <p class="card-text2"><%= post_sushi.municipalities %></p>
+              <p class="card-text2">ランチorディナー：<%= post_sushi.lunch_dinner %></p>
               <p class="card-text2">一人あたりの値段：<%= post_sushi.price %></p>
               <p class="card-text2">お店の雰囲気：<%= post_sushi.atmosphere %></p>
               <p class="card-text2">感想：<%= post_sushi.memo %></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
-         </div>
-         </div>
-       <% end %>
+        </div>
        </div>
+       <% end %>
      </div>
-  </diV>
-</div>
+    
+ 
