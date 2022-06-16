@@ -21,7 +21,19 @@ class Public::EndUsersController < ApplicationController
     favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_sushi_id)
     @favorite_post_sushis = PostSushi.find(favorites)
   end
-
+  
+  def withdrawal
+    @end_user = EndUser.find(params[:id])
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @end_user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行しました"
+    redirect_to new_end_user_session_path
+  end
+  
+  def unsubscribe
+    @end_user = EndUser.find(params[:id])
+  end
 
   private
 

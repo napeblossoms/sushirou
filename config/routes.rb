@@ -30,6 +30,8 @@ Rails.application.routes.draw do
    end
 
    resources :end_users, only: [:edit, :show, :update] do
+     get '/end_users/:id/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
+     patch '/end_users/:id/withdrawal' => 'end_users#withdrawal', as: 'withdrawal'
      resource :relationships, only: [:create, :destroy]
        get 'followings' => 'relationships#followings', as: 'followings'
        get 'followers' => 'relationships#followers', as: 'followers'

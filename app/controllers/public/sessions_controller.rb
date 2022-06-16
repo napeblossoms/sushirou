@@ -1,9 +1,20 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before action :end_useer_state, only: [:create]
+  
+ protected
+  #退会してるか確認
+  def end_user_status
+    @enduser = EndUser.find_by(name: params[:end_user][:email])
+    if @end_user
+      if @user.valid_password?(params[:end_user][:password]) && (@end_user.is_delete == true)
+        redirect_to new_user_session_path
+      end
+    end
+  end
+end
 
-  # GET /resource/sign_in
   # def new
   #   super
   # end
@@ -24,4 +35,4 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
+
