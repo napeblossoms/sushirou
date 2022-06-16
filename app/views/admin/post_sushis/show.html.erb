@@ -1,0 +1,25 @@
+<!--寿司投稿詳細-->
+<div class="card mx-auto" style="width: 30rem;">
+ <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
+  <div class="card-body">
+    <h5 class="card-title"><strong><%= @post_sushi.name %></strong></h5>
+    <p class="card-text1"><%= @post_sushi.region %>地方</p>
+    <p class="card-text2"><%= @post_sushi.prefecture %></p>
+    <p class="card-text2"><%= @post_sushi.municipalities %></p>
+    <p class="card-text2">一人あたりの値段：<%= @post_sushi.price %></p>
+    <p class="card-text2">お店の雰囲気：<%= @post_sushi.atmosphere %></p>
+    <p class="card-text2">感想：<%= @post_sushi.memo %></p>
+     投稿者：<%= @post_sushi.end_user.name %>
+     
+   <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
+
+ <!--コメント機能-->
+ <!--コメント一覧-->
+
+
+ <!--投稿の削除-->
+    <%= link_to "投稿を削除", admin_post_sushi_path(@post_sushi), method: :delete %>
+
+
+  </div>
+</div>
