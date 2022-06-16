@@ -42,7 +42,9 @@ Rails.application.routes.draw do
   
   namespace :admin do
       resources :end_users, only: [:show,:update,:index,:edit] 
-      resources :post_sushis, only: [:show,:index,:destroy]
+      resources :post_sushis, only: [:show,:index,:destroy] do
+        resources :post_comments, only: [:create, :destroy]
+      end
   end
   
 end

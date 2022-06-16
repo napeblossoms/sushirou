@@ -17,7 +17,6 @@ class Public::PostSushisController < ApplicationController
     @post_sushi.end_user_id = current_end_user.id
     @post_sushi.save
     redirect_to public_post_sushis_path
-
   end
 
   def index
