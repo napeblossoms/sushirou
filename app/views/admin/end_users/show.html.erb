@@ -1,0 +1,36 @@
+<div class="row">
+	<h4><%="#{@end_user.name}さんの会員詳細"%></h4>
+    <table class="table">
+      <tbody>
+      	<tr>
+      		<td>会員ID</td>
+      		<td ><%=@end_user.id %></td>
+      	</tr>
+	      <tr>
+		      <td>氏名</td>
+		      <td><%=@end_user.name%></td>
+	      </tr>
+	      <tr>
+		      <td>メールアドレス</td>
+		      <td><%= @end_user.email %></td>
+	      </tr>
+	      <!--<tr>-->
+	      <!--	<td >会員ステータス</td>-->
+	      <!--	<td>-->
+       <!--   <%#  <% if @end_user.is_deleted == true%>-->
+       <!--       <p class="text-danger">退会済</p>-->
+       <!--       <%#<% else %>-->
+       <!--       <p class="text-success">有効</p>-->
+       <!--   <%#  <% end %>-->
+       <!--   </td>-->
+	      <!--</tr>-->
+	      <tr>
+	      	<td></td>
+	      	<td>
+	      		 <%= link_to "編集する",edit_admin_end_user_path(@end_user), class: "btn btn-success"%>
+	　　　　　 <%#注文履歴一覧のpathはダミーなので後で変更する必要あり%>
+	      	</td>
+	      </tr>
+      </tbody>
+    </table>
+</div>

@@ -111,6 +111,10 @@
            <% end %>
          </li>
        <% elsif admin_signed_in? %>
+        <ul style="list-style: none;">
+         <li>
+          <%= link_to 'ユーザー一覧', admin_end_users_path, class:"nav-link text-light" %>
+         </li>
          <li>
           <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light" %>
          </li>

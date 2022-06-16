@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :admin, controllers: {
+  #管理者
+  devise_for :admin, skip: [:registrations, :passwords],controllers: { #registrationを除外して、新規登録するページを無く
       sessions: "admin/sessions"
   }
+  
+  #エンドユーザー
   devise_for :end_users
-  devise_scope :end_user do #ゲストログイン
+  
+  #ゲストログイン
+  devise_scope :end_user do 
       post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
   end
 
@@ -34,4 +39,9 @@ Rails.application.routes.draw do
      end
    end
   end
+  
+  namespace :admin do
+      resources :end_users,only: [:show,:update,:index,:edit] 
+  end
+  
 end
