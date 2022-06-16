@@ -4,7 +4,7 @@
       <tbody>
       	<tr>
       		<td>会員ID</td>
-      		<td ><%=@end_user.id %></td>
+      		<td><%=@end_user.id %></td>
       	</tr>
 	      <tr>
 		      <td>氏名</td>
@@ -14,16 +14,16 @@
 		      <td>メールアドレス</td>
 		      <td><%= @end_user.email %></td>
 	      </tr>
-	      <!--<tr>-->
-	      <!--	<td >会員ステータス</td>-->
-	      <!--	<td>-->
-       <!--   <%#  <% if @end_user.is_deleted == true%>-->
-       <!--       <p class="text-danger">退会済</p>-->
-       <!--       <%#<% else %>-->
-       <!--       <p class="text-success">有効</p>-->
-       <!--   <%#  <% end %>-->
-       <!--   </td>-->
-	      <!--</tr>-->
+	      <tr>
+	      	<td >会員ステータス</td>
+	      	<td>
+             <% if @end_user.is_deleted == true%>
+              <b class="text-danger">退会済</b>
+             <% else %>
+              <b class="text-success">有効</b>
+             <% end %>
+          </td>
+	      </tr>
 	      <tr>
 	      	<td></td>
 	      	<td>

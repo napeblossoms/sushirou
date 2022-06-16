@@ -19,7 +19,13 @@
               <% end %>
           </td>
           <td><%= end_user.email %></td>
-          <td></td>
+          <td>
+              <% if end_user.is_deleted == true%>
+                <b class="text-danger">退会済</b>
+              <% else %>
+                <b class="text-success">有効</b>
+              <% end %>
+          </td>
       </tbody>
         <% end %>
     </table>
