@@ -1,41 +1,75 @@
 <!--寿司投稿詳細-->
-<div class="card mx-auto" style="width: 30rem;">
- <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
-  <div class="card-body">
-    <h5 class="card-title"><strong><%= @post_sushi.name %></strong></h5>
-    <p class="card-text1"><%= @post_sushi.region %>地方</p>
-    <p class="card-text2"><%= @post_sushi.prefecture %></p>
-    <p class="card-text2"><%= @post_sushi.municipalities %></p>
-    <p class="card-text2">一人あたりの値段：<%= @post_sushi.price %></p>
-    <p class="card-text2">お店の雰囲気：<%= @post_sushi.atmosphere %></p>
-    <p class="card-text2">感想：<%= @post_sushi.memo %></p>
-     投稿者：<%= link_to public_end_user_path(@post_sushi.end_user_id) do %>
-        <%= @post_sushi.end_user.name %>
-     <% end %>
-   <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
-
- <!--コメント機能-->
- <!--コメント一覧-->
- <div class="post_comments_buttons_<%= @post_sushi.id %>">
-   <%= render "public/post_comments/post_comments", post_sushi: @post_sushi %>
- </div>
- <!--コメントフォーム-->
- <div>
-   <%= render "public/post_comments/form", post_sushi: @post_sushi, post_comment: @post_comment %>
- </div>
-
-
- <!--タベタイ機能-->
- <div class="favorites_buttons_<%= @post_sushi.id %>">
-   <%= render "public/favorites/favorite", post_sushi: @post_sushi %>
- </div>
-
- <!--投稿の削除-->
-    <% if @post_sushi.end_user == current_end_user %>
-      <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete %>
-    <% end %>
-
-
+<div class="container">
+ <div class="row mt-2">
+  <div class="col-4 m-0 p-0">
+    <div class="card w-100 mb-4">
+      <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
+      <div class="card-body">
+        <h5 class="card-title">
+            <strong><%= @post_sushi.name %></strong>
+        </h5>
+        <div class="place text-center"> 
+          <h6 class= "title"><i class="fas fa-map-marker-alt"></i>場所</h6>
+          <p class="card-text1"><%= @post_sushi.region %>地方</p>
+          <p class="card-text2"><%= @post_sushi.prefecture %></p>
+          <p class="card-text2"><%= @post_sushi.municipalities %></p>
+        </div>
+        <div class="lunch text-center">
+          <h6 class= "title"><i class="fas fa-utensils"></i>ランチorディナー</h6>
+          <p class="card-text2"><%= @post_sushi.lunch_dinner %></p>
+        </div>
+        <div class="price text-center">
+          <h6 class= "title"><i class="fas fa-comment-dollar"></i>一人あたりの値段</h6>
+          <p class="card-text2"><%= @post_sushi.price %></p>
+        </div>
+        <div class="atmosphere text-center">
+          <h6 class= "title"><i class="fas fa-bookmark"></i>お店の雰囲気</h6>
+          <p class="card-text2"><%= @post_sushi.atmosphere %></p>
+        </div>
+        <div class="memo text-center">
+          <h6 class= "title"><i class="fas fa-book-open"></i>メモ</h6>
+          <p class="card-text2"><%= @post_sushi.memo %></p>
+        </div>
+        <div class= "user text-center">
+          <p>by<%= image_tag @post_sushi.end_user.get_profile_image, width: "20%",height: "20%",class:"mt-3 rounded-circle"; %>
+             <%= @post_sushi.end_user.name %>
+          </p>
+        </div>
+           <!--投稿の削除-->
+            <% if @post_sushi.end_user == current_end_user %>
+             <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm" %>
+            <% end %>
+      </div> 
+    </div>
   </div>
-</div>
+  
+  <div class="col-4 m-0 p-0">
+    <div class="card w-100 mb-4">
+      <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
+      <div class="card-body">
+        <!--コメント機能-->
+        <!--コメントフォーム-->
+        <div>
+          <%= render "public/post_comments/form", post_sushi: @post_sushi, post_comment: @post_comment %>
+        </div>
+        <!--コメント一覧-->
+        <div class="post_comments_buttons_<%= @post_sushi.id %>">
+          <%= render "public/post_comments/post_comments", post_sushi: @post_sushi %>
+        </div>
+        <!--タベタイ機能-->
+        <div class="favorites_buttons_<%= @post_sushi.id %>">
+          <%= render "public/favorites/favorite", post_sushi: @post_sushi %>
+        </div>
+      </div> 
+    </div>
+  </div>
+ </div><!--row-->
+</div><!--container-->
+
+ 
+ 
+
+ 
+
+
 
