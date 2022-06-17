@@ -5,15 +5,15 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(Admin)
       admin_post_sushis_path
     else
-      root_path
+       public_post_sushis_path
     end
   end
   
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :admin
-      new_admin_session_path
+      root_path
     else
-      new_end_user_session_path
+      root_path
     end
   end
  

@@ -14,6 +14,12 @@ html, body {
 .logo {
   margin-top: 30px ;
  }
+ 
+ /*root_path*/
+ .jumbotron{
+   width: 700px;
+   height: 300px;
+ }
  /*main全体*/
  .main {
   background-color: #F5DEB3;
@@ -75,6 +81,10 @@ strong {
 
 .introduction{
   margin: 50px 0 0 0;
+}
+
+.footer-text{
+  text-decoration: none;
 }
 
 

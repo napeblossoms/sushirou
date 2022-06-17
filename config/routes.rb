@@ -12,9 +12,8 @@ Rails.application.routes.draw do
       post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
   end
 
-  root to: "public/post_sushis#index" #TOPページ
+  root to: "homes#top" 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/homes' => 'homes#top'
   namespace :public do
    resources :post_sushis, only: [:new, :create, :index, :edit, :show, :update, :destroy] do
      resources :post_comments, only: [:create, :destroy]
