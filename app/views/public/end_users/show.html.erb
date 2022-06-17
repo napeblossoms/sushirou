@@ -36,8 +36,13 @@
             <% end %>
            <% end %>
            
-           <p><%=link_to"フォロワー寿司投稿", followings_public_post_sushi_path(@end_user) %></p>
-           <p><%=link_to"退会する", public_end_user_unsubscribe_path(@end_user) %></p>
+           <%=link_to followings_public_post_sushi_path(@end_user) do %>
+                <i class="fas fa-user-friends"></i>フォローしている人の投稿一覧
+        　 <% end %>
+           
+           <% if @end_user.name != "guestuser" && @end_user == current_end_user %>
+          　 <p><%=link_to"退会する", public_end_user_unsubscribe_path(@end_user),class:"btn btn-danger btn-sm" %></p>
+           <% end %>
            
       </div>
     </div>
