@@ -71,11 +71,11 @@
     <div class="card w-100 mb-4">
       <%= image_tag post_sushi.get_image, class: 'sushi-img' %>
       <div class="card-body">
-        <h4 class="card-title">
+        <h5 class="card-title">
           <%= link_to public_post_sushi_path(post_sushi.id) do %>
             <strong><%= post_sushi.name %></strong>
           <% end %>
-        </h4>
+        </h5>
         <div class="place text-center"> 
           <h6 class= "title"><i class="fas fa-map-marker-alt"></i>場所</h6>
           <p class="card-text1"><%= post_sushi.region %>地方</p>
