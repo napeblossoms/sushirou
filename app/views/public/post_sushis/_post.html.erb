@@ -1,6 +1,5 @@
-<!--タベタイ一覧-->
-<div class="row mt-2">
-  <% @favorite_post_sushis.each do |post_sushi| %>
+<div class="row mt-5">
+  <% post_sushis.each do |post_sushi| %>
   <div class="col-lg-3">
     <div class="card w-100 mb-4">
       <%= image_tag post_sushi.get_image, class: 'sushi-img' %>
