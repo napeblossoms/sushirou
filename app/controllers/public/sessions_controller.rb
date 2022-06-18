@@ -1,5 +1,5 @@
 class Public::SessionsController < Devise::SessionsController
-  before action :end_user_state, only: [:create]
+  before_action :end_user_state, only: [:create]
 
   protected
   #退会してるか確認
