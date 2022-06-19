@@ -15,8 +15,11 @@ class Public::PostSushisController < ApplicationController
     params[:post_sushi][:atmosphere] = params[:post_sushi][:atmosphere].to_i
     @post_sushi = PostSushi.new(post_sushi_params)
     @post_sushi.end_user_id = current_end_user.id
-    @post_sushi.save
-    redirect_to public_post_sushis_path
+    if @post_sushi.save
+      redirect_to public_post_sushis_path
+    else
+      render :new
+    end
   end
 
   def index
