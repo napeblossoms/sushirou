@@ -98,6 +98,7 @@ html, body {
   position: sticky;/*sidebarの固定*/
 }
 
+
 /*public/post_sushi#index(topページ)*/
 // .card {
 //   margin: 0 50px 50px 50px;
@@ -161,12 +162,15 @@ strong {
   width: 250px;
   height: 100px;
 }
-
+.comment{
+  overflow: scroll;
+  height: 390px;
+}
 .balloon2-left {
   position: relative;
   display: inline-block;
   margin: 10px 0 10px 10px;
-  padding: 7px 10px;
+  padding: 0px 10px;
   min-width: 120px;
   max-width: 100%;
   color: #555;
