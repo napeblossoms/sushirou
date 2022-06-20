@@ -5,12 +5,12 @@
     <div class="card w-100 mb-4">
       <%= image_tag post_sushi.get_image, class: 'sushi-img' %>
       <div class="card-body">
-        <h5 class="card-title">
+        <h5 class="card-title text-center">
           <%= link_to public_post_sushi_path(post_sushi.id) do %>
             <strong><%= post_sushi.name %></strong>
           <% end %>
         </h5>
-        <div class="place text-center"> 
+        <div class="place text-center">
           <h6 class= "title"><i class="fas fa-map-marker-alt"></i>場所</h6>
           <p class="card-text1"><%= post_sushi.region %>地方</p>
           <p class="card-text2"><%= post_sushi.prefecture %></p>
@@ -36,7 +36,7 @@
           <p>by<%= image_tag post_sushi.end_user.get_profile_image, width: "20%",height: "20%",class:"mt-3 rounded-circle"; %>
              <%= post_sushi.end_user.name %>
           </p>
-        </div> 
+        </div>
       </div>
     </div>
     </div>

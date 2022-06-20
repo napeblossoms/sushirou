@@ -16,45 +16,45 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+
       <%= search_form_for @q, url: search_public_post_sushis_path do |f| %>
       <div class="modal-body">
         <div class="form-group">
          <%= f.label :name, "店名" %>
          <%= f.search_field :name_cont, placeholder: "店名キーワード",class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :region, "地方" %>
          <%= f.select :region_cont, PostSushi.regions.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :prefecture, "都道府県" %>
        　 <%= f.select :prefecture_cont, PostSushi.prefectures.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :municipalities, "市区町村" %>
        　<%= f.search_field :municipalities_cont, placeholder: "市区町村キーワード", class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :lunch_dinner, "ランチorディナー" %>
        　<%= f.select :lunch_dinner_cont, PostSushi.lunch_dinners.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :price, "一人当たりの金額" %>
        　<%= f.select :price_cont, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :atmosphere, "お店の雰囲気" %>
        　 <%= f.select :atmosphere_cont, PostSushi.atmospheres.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
         </div>
       </div>
-      
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> 検索</button>
@@ -65,4 +65,7 @@
 </div>
 
 <!--寿司投稿一覧-->
-<%= render 'post', post_sushis: @post_sushis %>
+<section class="ex1">
+　  <div class="sushi">ミンナのスシ</div>
+</section>
+  <%= render 'post', post_sushis: @post_sushis %>
