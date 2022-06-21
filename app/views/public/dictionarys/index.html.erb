@@ -1,33 +1,33 @@
 <div class="container">
 <div class="row">
-  <%= form_tag(public_dictionarys_path , method: :get) do %>
-    <%= select(@search_content, :search_method, [["全部", "全部"],["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]])%>
-    <%= submit_tag "検索" %>
-  <% end %>
-
-  <div class="col-md-2">
+  <div class="col-lg-3">
+    <h5 class="title">食べたスシを<br>辞典に追加する</h5>
     <%= form_with model: @dictionary, url: public_dictionarys_path, method: :post do |f| %>
     <div class="form-group">
-       <%= f.label :食べた季節 %>
-        <%= f.select :season, [["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "選択して下さい" %>
-    </div>
-  <div class="form-group">
-       <%= f.label :ネタの名前 %>
-        <%= f.text_field :name %>
+       <%= f.label :食べた季節 %><br>
+       <%= f.select :season, [["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "選択して下さい" %>
     </div>
     <div class="form-group">
-       <%= f.label :メモ %>
-        <%= f.text_area :body %>
+       <%= f.label :ネタの名前 %><br>
+       <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+       <%= f.label :メモ %><br>
+       <%= f.text_area :body %>
     </div>
 
-      <div class="dic">
-        <%= f.submit '投稿' %>
-      </div>
+    <div class="dic">
+      <%= f.submit '投稿' %>
+    </div>
     <% end %>
     </div>
-  </div>
 
-    <div class="col-md-10">
+    <div class="col-lg-9">
+      <%= form_tag(public_dictionarys_path , method: :get) do %>
+
+        <%= select(@search_content, :search_method, [["全部", "全部"],["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "旬のスシを検索") %>
+        <%= submit_tag "検索"  %>
+      <% end %>
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -52,5 +52,5 @@
        <% end %>
       </table>
     </div>
-
   </div>
+</div>

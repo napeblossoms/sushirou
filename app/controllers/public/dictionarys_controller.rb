@@ -14,7 +14,7 @@ class Public::DictionarysController < ApplicationController
   def index
     # @dictionarys = Dictionary.all
     @dictionary = Dictionary.new
-    method = params[:search_method]#haru,natumaki,huyu
+    method = params[:search_method]#春、夏、秋、冬
     @dictionarys = Dictionary.search(method)
   end
 
