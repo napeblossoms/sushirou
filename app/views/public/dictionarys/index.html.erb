@@ -28,6 +28,7 @@
         <%= select(@search_content, :search_method, [["全部", "全部"],["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "旬のスシを検索") %>
         <%= submit_tag "検索"  %>
       <% end %>
+      <div class="dictionary">
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -51,6 +52,7 @@
         </tbody>
        <% end %>
       </table>
+      </div>
     </div>
   </div>
 </div>

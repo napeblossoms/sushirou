@@ -162,7 +162,7 @@ strong {
 }
 .comment{
   overflow: scroll;
-  height: 485px;
+  height: 490px;
 }
 
 /* 吹き出し本体 */
@@ -195,6 +195,11 @@ strong {
 
 .introduction{
   margin: 50px 0 0 0;
+}
+
+.dictionary {
+  overflow: scroll;
+  height: 500px
 }
 
 .footer-text{
