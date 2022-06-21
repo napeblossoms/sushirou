@@ -1,19 +1,24 @@
 <div class="container">
 <div class="row">
-  <div class="col-lg-2">
-    <div>
-    <%= form_with model: @dictionary do |f| %>
-      <div class="dic">食べた季節
+  <%= form_tag(public_dictionarys_path , method: :get) do %>
+    <%= select(@search_content, :search_method, [["全部", "全部"],["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]])%>
+    <%= submit_tag "検索" %>
+  <% end %>
+
+  <div class="col-md-2">
+    <%= form_with model: @dictionary, url: public_dictionarys_path, method: :post do |f| %>
+    <div class="form-group">
+       <%= f.label :食べた季節 %>
         <%= f.select :season, [["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "選択して下さい" %>
-      </div>
-
-      <div class="div">ネタの名前
+    </div>
+  <div class="form-group">
+       <%= f.label :ネタの名前 %>
         <%= f.text_field :name %>
-      </div>
-
-      <div class="dic">メモ
+    </div>
+    <div class="form-group">
+       <%= f.label :メモ %>
         <%= f.text_area :body %>
-      </div>
+    </div>
 
       <div class="dic">
         <%= f.submit '投稿' %>
@@ -22,7 +27,7 @@
     </div>
   </div>
 
-    <div class="col-lg-10">
+    <div class="col-md-10">
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -34,17 +39,17 @@
         </thead>
         <tbody>
         <% @dictionarys.each do |dictionary| %>
-      　  <tr>
-      　    <td><%= dictionary.season %></td>
-      　    <td>
-      　      <%= link_to public_dictionary_path(dictionary.id) do %>
-      　       <%= dictionary.name %>
-      　      <% end %>
-      　    </td>
-      　    <td><%= dictionary.body %></td>
-      　  </tr>
+         <tr>
+           <td><%= dictionary.season %></td>
+           <td>
+             <%= link_to public_dictionary_path(dictionary.id) do %>
+              <%= dictionary.name %>
+             <% end %>
+           </td>
+           <td><%= dictionary.body %></td>
+         </tr>
         </tbody>
-      　<% end %>
+       <% end %>
       </table>
     </div>
 
