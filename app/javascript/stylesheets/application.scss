@@ -159,53 +159,40 @@ strong {
 
 
 .comment-form{
-  width: 250px;
+  width: 400px;
   height: 100px;
 }
 .comment{
   overflow: scroll;
-  height: 390px;
+  height: 485px;
 }
-.balloon2-left {
+
+/* 吹き出し本体 */
+.balloon{
   position: relative;
-  display: inline-block;
-  margin: 10px 0 10px 10px;
-  padding: 0px 10px;
-  min-width: 120px;
-  max-width: 100%;
-  color: #555;
-  font-size: 16px;
-  background: #FFF;
-  border: solid 3px #555;
-  box-sizing: border-box;
+  padding: 8px;
+  background-color: #66FF33;
+  box-shadow: 0px 0px 10px 0px #a7a7a7; /* 吹き出し本体の影 */
   border-radius: 15px;
-}
+  width: 500px;
 
-.balloon2-left:before {
-  content: "";
+}
+/* 三角アイコン */
+.balloon::before{
+  content: '';
   position: absolute;
-  top: 50%;
-  left: -24px;
-  margin-top: -12px;
-  border: 12px solid transparent;
-  border-right: 12px solid #FFF;
-  z-index: 2;
+  display: block;
+  width: 0;
+  height: 0;
+  left: 20px;
+  top: -15px;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #66FF33;
+  border-left: 15px solid transparent;
 }
 
-.balloon2-left:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  margin-top: -14px;
-  border: 14px solid transparent;
-  border-right: 14px solid #555;
-  z-index: 1;
-}
-
-.balloon2-left p {
-  margin: 0;
-  padding: 0;
+.balloon-text {
+  font-size: 5px;
 }
 
 .introduction{

@@ -1,11 +1,11 @@
  <!--コメントするボックス-->
       <%= form_with model: [post_sushi, post_comment], url: public_post_sushi_post_comments_path(post_sushi), method: :post, local: false do |f| %>
-       <div class="comment-form">
-        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに", class:"form-control"%>
+       <div class="comment-form mx-auto">
+        <%= f.text_area :comment, rows: '3', placeholder: "コメントをかく", class:"form-control"%>
+            <div class="comment-button text-right">
+              <%= f.submit "送信する",class:"btn btn-secondary btn-sm" %>
+            </div>
        </div>
-       <div class="comment-button">
-        <%= f.submit "送信する",class:"btn btn-secondary btn-sm" %>
-       </div>
-        
-       <% end %>
-  
+
+
+      <% end %>

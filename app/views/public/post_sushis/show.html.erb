@@ -37,16 +37,23 @@
              <% end %>
           </p>
         </div>
+
+        <!--タベタイ機能-->
+        <div class="favorites_buttons_<%= @post_sushi.id %>">
+          <%= render "public/favorites/favorite", post_sushi: @post_sushi %>
+        </div>
            <!--投稿の削除-->
+           <div class="row mx-auto">
             <% if @post_sushi.end_user == current_end_user %>
-             <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm" %>
+             <%= link_to "投稿を削除", public_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm btn-block" %>
             <% end %>
+           </div>
       </div>
     </div>
   </div>
 
   <div class="col-8 m-0 p-0">
-    <div class="card w-100 mb-4">
+    <div class="card w-100 mb-4" style="background-color: #CCFFFF;">
        <%= image_tag "sushi.png", class:"sushi-img" %>
       <div class="card-body">
         <!--コメント機能-->
@@ -58,10 +65,7 @@
         <div class="post_comments_buttons_<%= @post_sushi.id %>">
           <%= render "public/post_comments/post_comments", post_sushi: @post_sushi %>
         </div>
-        <!--タベタイ機能-->
-        <div class="favorites_buttons_<%= @post_sushi.id %>">
-          <%= render "public/favorites/favorite", post_sushi: @post_sushi %>
-        </div>
+
       </div>
     </div>
   </div>
