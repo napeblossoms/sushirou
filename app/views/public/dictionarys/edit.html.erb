@@ -1,0 +1,25 @@
+<div class="container">
+   <h5 class="edit">寿司辞典編集</h5>
+  <div class="row">
+    <%= form_with model: @dictionary, url: public_dictionary_path(@dictionary.id), method: :patch do |f| %>
+      <div class="dic">食べた季節<br>
+        <%= f.select :season, [["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "選択して下さい" %>
+      </div>
+
+      <div class="div">ネタの名前<br>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="dic">メモ<br>
+        <%= f.text_area :body %>
+      </div>
+
+      <div class="dic">
+        <%= f.submit '保存' %>
+      </div>
+      <%= link_to "詳細に戻る",  public_dictionary_path(@dictionary.id) %>
+
+    <% end %>
+
+  </div>
+</div>

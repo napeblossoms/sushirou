@@ -3,19 +3,20 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords],controllers: { #registrationを除外して、新規登録するページを無く
       sessions: "admin/sessions"
   }
-  
+
   #エンドユーザー
   devise_for :end_users
-  
+
   #ゲストログイン
-  devise_scope :end_user do 
+  devise_scope :end_user do
       post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
   end
 
-  root to: "homes#top" 
+  root to: "homes#top"
   get '/about' => 'homes#about' , as: 'about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :public do
+   resources :dictionarys, only: [:new, :create, :index, :edit, :show, :update, :destroy]
    resources :post_sushis, only: [:new, :create, :index, :edit, :show, :update, :destroy] do
      resources :post_comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
@@ -41,12 +42,12 @@ Rails.application.routes.draw do
      end
    end
   end
-  
+
   namespace :admin do
-      resources :end_users, only: [:show,:update,:index,:edit] 
+      resources :end_users, only: [:show,:update,:index,:edit]
       resources :post_sushis, only: [:show,:index,:destroy] do
         resources :post_comments, only: [:create, :destroy]
       end
   end
-  
+
 end
