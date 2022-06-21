@@ -1,0 +1,19 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>旬</th>
+      <th>ネタ</th>
+      <th>メモ</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+　  <tr>
+　    <td><%= @dictionary.season %></td>
+　    <td><%= @dictionary.name %></td>
+　    <td><%= @dictionary.body %></td>
+　    <td><%= link_to "削除", admin_dictionary_path(@dictionary.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+　  </tr>
+  </tbody>
+</table>
