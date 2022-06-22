@@ -6,13 +6,16 @@ class Public::DictionarysController < ApplicationController
   end
 
   def create
+    @dictionarys = Dictionary.all
     @dictionary = Dictionary.new(dictionary_params)
-    @dictionary.save
-    redirect_to public_dictionarys_path
+    if @dictionary.save
+      redirect_to public_dictionarys_path
+    else
+      render :index
+    end
   end
 
   def index
-    # @dictionarys = Dictionary.all
     @dictionary = Dictionary.new
     method = params[:search_method]#春、夏、秋、冬
     @dictionarys = Dictionary.search(method)

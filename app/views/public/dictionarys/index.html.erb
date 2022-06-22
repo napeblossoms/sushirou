@@ -1,6 +1,15 @@
 <div class="container">
 <div class="row">
   <div class="col-lg-3">
+  <% if @dictionary.errors.any? %>
+   <%= @dictionary.errors.count %>件のエラーが発生しました
+   <ul>
+    <% @dictionary.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+   </ul>
+  <% end %>
+
     <h5 class="title">食べたスシを<br>辞典に追加する</h5>
     <%= form_with model: @dictionary, url: public_dictionarys_path, method: :post do |f| %>
     <div class="form-group">
