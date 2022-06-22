@@ -9,24 +9,23 @@
   </thead>
   <tbody>
     <% if @end_users.exists? %>
-    <% @end_users.each do |end_user| %>
-      <tr>
-        <td><%= image_tag end_user.get_profile_image, width: "8%",height: "8%",class:"rounded-circle";%></td>
-        <td><%= end_user.name %></td>
-         <td>
-           <% if current_end_user != end_user %>
-            <% if current_end_user.following?(end_user) %>
-              <%= link_to "フォロー中", public_end_user_relationships_path(end_user.id), method: :delete, class:"btn btn-outline-secondary btn-sm"  %>
-            <% else %>
-              <%= link_to "フォローする", public_end_user_relationships_path(end_user.id), method: :post, class:"btn btn-outline-secondary btn-sm"  %>
+      <% @end_users.each do |end_user| %>
+        <tr>
+          <td><%= image_tag end_user.get_profile_image, width: "50px",height: "50px",class:"rounded-circle"; %></td>
+          <td><%= end_user.name %></td>
+          <td>
+            <% if current_end_user != end_user %>
+              <% if current_end_user.following?(end_user) %>
+                <%= link_to "フォロー中▽", public_end_user_relationships_path(end_user.id), method: :delete, class:"btn btn-outline-secondary btn-sm" %>
+              <% else %>
+                <%= link_to "フォローする", public_end_user_relationships_path(end_user.id), method: :post, class:"btn btn-outline-secondary btn-sm" %>
+              <% end %>
             <% end %>
-           <% end %>
-         </td>
-      </tr>
-    <% end %>
+          </td>
+        </tr>
+      <% end %>
     <% else %>
       <p>ユーザーはいません</p>
     <% end %>
   </tbody>
 </table>
-
