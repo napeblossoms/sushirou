@@ -13,7 +13,7 @@
 　    <td><%= @dictionary.season %></td>
 　    <td><%= @dictionary.name %></td>
 　    <td><%= @dictionary.body %></td>
-　    <td><%= link_to "削除", admin_dictionary_path(@dictionary.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+　    <td><%= link_to "削除", admin_dictionary_path(@dictionary.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger btn-sm" %></td>
 　  </tr>
   </tbody>
 </table>
