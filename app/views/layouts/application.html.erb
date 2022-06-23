@@ -83,7 +83,7 @@
        <% else %>
         <ul style="list-style: none;">
          <li>
-           <%= button_to end_users_guest_sign_in_path, class:"nav-link text-dark" do %>
+           <%= link_to end_users_guest_sign_in_path, method: :post, class:"nav-link text-dark" do %>
             <i class="fas fa-user-alt"></i>ゲストログイン
            <% end %>
          </li>
