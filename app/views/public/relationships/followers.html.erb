@@ -12,7 +12,11 @@
       <% @end_users.each do |end_user| %>
         <tr>
           <td><%= image_tag end_user.get_profile_image, width: "50px",height: "50px",class:"rounded-circle"; %></td>
-          <td><%= end_user.name %></td>
+          <td>
+            <%= link_to  public_end_user_path(end_user.id) do %>
+              <%= end_user.name %>
+            <% end %>
+          </td>
           <td>
             <% if current_end_user != end_user %>
               <% if current_end_user.following?(end_user) %>

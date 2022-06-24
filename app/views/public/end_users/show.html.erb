@@ -4,7 +4,7 @@
       <div>
         <%= image_tag @end_user.get_profile_image, width: "150px",height: "150px",class:"mt-3 rounded-circle"; %>
         <div class="follow2 text-center mt-2">
-          <% if current_end_user != @end_user %>
+          <% if current_end_user != @end_user && current_end_user.name != "guestuser" %><!--ゲストユーザーのときはフォローできない-->
              <% if current_end_user.following?(@end_user) %>
               <%= link_to "フォロー中▽", public_end_user_relationships_path(@end_user.id), method: :delete,class:"btn btn-outline-secondary btn-sm" %>
              <% else %>
