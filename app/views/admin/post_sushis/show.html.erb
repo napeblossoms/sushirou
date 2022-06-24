@@ -35,7 +35,7 @@
               <%= @post_sushi.end_user.name %>
           </p>
             <!--投稿の削除-->
-           <%= link_to "投稿を削除", admin_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm btn-block" %>
+           <%= link_to "投稿を削除", admin_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm btn-block", data: {confirm: "本当に削除しますか？"} %>
        </div>
       </div>
      </div>
