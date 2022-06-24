@@ -7,49 +7,49 @@
         <div class="form-group">
           <%= f.file_field :image, accept: "image/*" %>
         </div>
-        
+
         <div class="form-group">
           <label for="inputname">スシ屋の名前</label>
           <%= f.text_field :name,placeholder: "すしろう", class: 'form-control'%>
         </div>
-        
+
         <div class="form-group">
           <label for="inputregion">地方</label>
-          <%= f.select :region, options_for_select(PostSushi.regions), {prompt: "選択してください"},class: 'form-control' %>
+          <%= f.select :region, options_for_select(PostSushi.regions),  { include_blank: '選択してください' },class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
           <label for="inputprefecture">都道府県</label>
-          <%= f.select :prefecture, options_for_select(PostSushi.prefectures), {prompt: "選択してください"},class: 'form-control' %>
+          <%= f.select :prefecture, options_for_select(PostSushi.prefectures), { include_blank: "選択してください"},class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
           <label for="inputmunicipalities">市区町村</label>
           <%= f.text_field :municipalities,placeholder: "市区町村", class: 'form-control'%>
         </div>
-        
+
         <div class="form-group">
           <label for="inputlunch_dinner">ランチorディナー</label>
-          <%= f.select :lunch_dinner, options_for_select(PostSushi.lunch_dinners), {prompt: "選択してください"},class: 'form-control' %>
+          <%= f.select :lunch_dinner, options_for_select(PostSushi.lunch_dinners), { include_blank: "選択してください"},class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
           <label for="inputprice">一人当たりの値段</label>
-          <%= f.select :price, options_for_select(PostSushi.prices), {prompt: "選択してください"},class: 'form-control' %>
+          <%= f.select :price, options_for_select(PostSushi.prices), { include_blank: "選択してください"},class: 'form-control' %>
         </div>
-        
+
          <div class="form-group">
           <label for="inputatmosphere">スシ屋の雰囲気</label>
-          <%= f.select :atmosphere, options_for_select(PostSushi.atmospheres), {prompt: "選択してください"},class: 'form-control' %>
+          <%= f.select :atmosphere, options_for_select(PostSushi.atmospheres), { include_blank: "選択してください"},class: 'form-control' %>
         </div>
-        
+
         <div class="form-group">
           <label for="inputmemo">メモ</label>
           <%= f.text_area :memo,placeholder: "感想", class: 'form-control'%>
         </div>
-        
+
          <%= f.submit '投稿する',class: "btn btn-block btn-secondary mt-5" %>
-        
+
       </div>
       <% end %>
     </div>

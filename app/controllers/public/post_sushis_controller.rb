@@ -38,20 +38,13 @@ class Public::PostSushisController < ApplicationController
   end
 
   def followings #フォローしているユーザーすべての投稿を取得
-     @post_sushis = PostSushi.where(end_user_id: [*current_end_user.following_ids])
+     @post_sushis = PostSushi.where(end_user_id: [*current_end_user.following_ids]).order('created_at desc')#投稿順にする
   end
 
   def search
     @q = PostSushi.ransack(params[:q])
     @results = @q.result
   end
-
-  def edit
-  end
-
-  def update
-  end
-
 
   private
 
