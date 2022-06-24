@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <script src="https://kit.fontawesome.com/451a59e5f8.js" crossorigin="anonymous"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -26,7 +25,7 @@
     <main class = "main">
       <div class="row">
         <div class="col-md-2" style="background-color: #163054;"> <!--サイドバー-->
-            <a class="logo" href="/"><%= image_tag('PF_logo.png') %></a>
+            <a class="logo" href="/public/post_sushis"><%= image_tag('PF_logo.png') %></a>
           <div class= "sidebar_fixed">
         <% if end_user_signed_in? %>
         <ul style="list-style: none;">

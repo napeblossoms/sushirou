@@ -10,66 +10,12 @@ html, body {
 
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
-// .card {
-//   width: 400px;
-//   height: 300px;
-//   margin: 50px;
+main {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
 
-//   border-radius: 10px;
-//   box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.3);
-
-//   position: relative;
-//   overflow: hidden;
-// }
-
-// .card::before,
-// .card::after{
-//   content: "";
-//   width: 100%;
-//   height: 60%;
-//   background-color: #a4c1cf;
-//   border-radius: 10px;
-
-//   position: absolute;
-//   left: 0;
-
-//   transition: transform .6s ease-in-out;
-// }
-
-// .card::before {
-//   transform: translateY(-100%);
-// }
-
-// .card::after {
-//   bottom: 0;
-//   transform: translateY(100%);
-// }
-
-// .card:hover::before,
-// .card:hover::after{
-//   transform: translateY(0);
-// }
-
-// .card-inner{
-//   padding: 3rem;
-
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   gap: 1rem;
-
-//   opacity: 0;
-//   transition: opacity .25s;
-
-//   position: relative;
-//   z-index: 1;
-// }
-
-// card.hover .card-inner{
-//   opacity: 1;
-//   transition-delay: .5s;
-// }
 .title {
    border-bottom: 3px solid #FF9999	;
 }
