@@ -152,20 +152,32 @@ strong {
   font-size: 5px;
 }
 
+
 .introduction{
   margin: 50px 0 0 0;
 }
 
+/*dictionary*/
 .dictionary {
   overflow: scroll;
   height: 500px
 }
 
+.balloon-2 {
+position: relative;
+background-color: #EEE;
+padding: 10px 15px 10px;
+color: #333;
+border-radius: 10px;
+box-shadow: 6px 6px 0px 0px #666;
+}
+
+/*footer*/
 .footer-text{
   text-decoration: none;
 }
 
-/*========= ページトップのためのCSS ===============*/
+/*ページトップへ*/
 /*リンクの形状*/
 #page-top a{
   display: flex;

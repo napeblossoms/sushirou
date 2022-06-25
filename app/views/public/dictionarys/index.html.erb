@@ -9,7 +9,7 @@
     <% end %>
    </ul>
   <% end %>
-
+   <div class="balloon-2">
     <h5 class="title">食べたスシを<br>辞典に追加する</h5>
     <%= form_with model: @dictionary, url: public_dictionarys_path, method: :post do |f| %>
     <div class="form-group">
@@ -30,6 +30,7 @@
     </div>
     <% end %>
     </div>
+  </div>
 
     <div class="col-lg-9">
       <%= form_tag(public_dictionarys_path , method: :get) do %>
