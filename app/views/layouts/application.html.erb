@@ -24,7 +24,8 @@
 
     <main class = "main">
       <div class="row">
-        <div class="col-md-2" style="background-color: #163054;"> <!--サイドバー-->
+        <div class="col-md-2" style="background-color: #163054;">
+         <div class="sidebar"> <!--サイドバー-->
             <a class="logo" href="/public/post_sushis"><%= image_tag('PF_logo.png') %></a>
           <div class= "sidebar_fixed">
         <% if end_user_signed_in? %>
@@ -100,6 +101,7 @@
        <% end %>
           </div>
         </div>
+      </div>
 
         <div class= "col-md-10 mt-3">
         <%= yield %>

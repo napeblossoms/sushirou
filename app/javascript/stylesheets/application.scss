@@ -12,13 +12,16 @@ html, body {
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
+/*フォント変更*/
 main {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+/*投稿の文字下点線*/
 .title {
    border-bottom: 3px solid #FF9999	;
 }
+
 /*logo*/
 .logo {
   margin-top: 30px ;
@@ -38,6 +41,11 @@ main {
    margin-bottom: 80px;
  }
 
+ .sidebar{
+   position: sticky;
+   top: 0;
+ }
+
  /*root_path*/
  .jumbotron{
    width: 700px;
@@ -52,15 +60,6 @@ main {
   background-color: #163054;
   border-bottom: 2px solid #FAEBD7;
 }
-.sidebar_fixed {
-  position: sticky;/*sidebarの固定*/
-}
-
-
-/*public/post_sushi#index(topページ)*/
-// .card {
-//   margin: 0 50px 50px 50px;
-// }
 
 /*すしの写真サイズ*/
 .sushi-img {
@@ -80,9 +79,6 @@ strong {
 .title {
   border-bottom: dotted 3px #163054;
 }
-
-/*public/post_sushi#shou(コメント)*/
-
 
 /*public/end_user#show*/
 .ex1 .sushi{
@@ -240,7 +236,6 @@ box-shadow: 6px 6px 0px 0px #666;
   transform: translateY(100px);
   }
 }
-
 
 /* Fix: Bootstrap .row Overflow */
 .row {
