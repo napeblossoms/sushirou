@@ -1,113 +1,112 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sushirou</title>
-    <!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="https://kit.fontawesome.com/451a59e5f8.js" crossorigin="anonymous"></script>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+     <title>Sushirou</title>
+     <!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
+     <%= csrf_meta_tags %>
+     <%= csp_meta_tag %>
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <script src="https://kit.fontawesome.com/451a59e5f8.js" crossorigin="anonymous"></script>
+     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
      crossorigin="anonymous"></script>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-     <header class="shadow-sm">
-       <nav class="navbar navbar-expand-lg navbar-light p-3"></nav>
-     </header>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light p-3"></nav>
+    </header>
 
-
-    <main class = "main">
-      <div class="row">
-        <div class="col-md-2" style="background-color: #163054;">
-         <div class="sidebar"> <!--サイドバー-->
-            <a class="logo" href="/public/post_sushis"><%= image_tag('PF_logo.png') %></a>
+  <main class = "main">
+    <div class="row">
+      <div class="col-md-2" style="background-color: #163054;">
+        <div class="sidebar"> <!--サイドバー-->
+          <a class="logo" href="/public/post_sushis"><%= image_tag('PF_logo.png') %></a>
           <div class= "sidebar_fixed">
-        <% if end_user_signed_in? %>
-        <ul style="list-style: none;">
-         <li>
-           <%= link_to public_post_sushis_path, class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i>Home
-           <% end %>
-         </li>
-         <li>
-           <%= link_to public_end_user_path(current_end_user.id), class:"nav-link text-light" do %>
-           <i class="fas fa-user-alt"></i>マイページ
-           <% end %>
-         </li>
-         <li>
-           <%=link_to followings_public_post_sushi_path(current_end_user.id), class:"nav-link text-light" do %>
-           <i class="fas fa-user-friends"></i>フォロー投稿一覧
-           <% end %>
-         </li>
-         <li>
-           <%= link_to new_public_post_sushi_path, class:"nav-link text-light" do %>
-           <i class="fas fa-plus-circle"></i>新規スシ投稿
-           <% end %>
-         </li>
-          <li>
-           <%= link_to favorites_public_end_user_path(current_end_user.id), class:"nav-link text-light" do %>
-            <i class="fas fa-thumbs-up"></i>タベタイスシ
-           <% end %>
-         </li>
-         <li>
-           <%= link_to public_dictionarys_path, class:"nav-link text-light" do %>
-           <i class="fas fa-book-open"></i>スシ辞典
-           <% end %>
-         </li>
-         <li>
-           <%= link_to destroy_end_user_session_path, method: :delete, class:"nav-link text-light" do %>
-            <i class="fas fa-sign-out-alt"></i> Log out
-           <% end %>
-         </li>
-       <% elsif admin_signed_in? %>
-        <ul style="list-style: none;">
-         <li>
-          <%= link_to 'ユーザー一覧', admin_end_users_path, class:"nav-link text-light" %>
-         </li>
-         <li>
-          <%= link_to '投稿一覧', admin_post_sushis_path, class:"nav-link text-light" %>
-         </li>
-         <li>
-          <%= link_to 'スシ辞典一覧', admin_dictionarys_path, class:"nav-link text-light" %>
-         </li>
-         <li>
-          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light" %>
-         </li>
-        </ul>
-       <% else %>
-        <ul style="list-style: none;">
-         <li>
-           <%= link_to end_users_guest_sign_in_path, method: :post, class:"nav-link text-light" do %>
-            <i class="fas fa-user-alt"></i>ゲストログイン<br>&emsp; (閲覧用)
-           <% end %>
-         </li>
-         <li>
-           <%= link_to new_end_user_session_path, class:"nav-link text-light" do %>
-            <i class="fas fa-sign-in-alt"></i>ログイン
-           <% end %>
-         </li>
-         <li>
-           <%= link_to new_end_user_registration_path, class:"nav-link text-light" do %>
-            <i class="fas fa-plus-circle"></i>新規登録
-           <% end %>
-         </li>
-        </ul>
-       <% end %>
+          <% if end_user_signed_in? %>
+            <ul style="list-style: none;">
+              <li>
+                <%= link_to public_post_sushis_path, class:"nav-link text-light" do %>
+                  <i class="fas fa-home"></i>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to public_end_user_path(current_end_user.id), class:"nav-link text-light" do %>
+                  <i class="fas fa-user-alt"></i>マイページ
+                <% end %>
+              </li>
+              <li>
+                <%=link_to followings_public_post_sushi_path(current_end_user.id), class:"nav-link text-light" do %>
+                  <i class="fas fa-user-friends"></i>フォロー投稿一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_public_post_sushi_path, class:"nav-link text-light" do %>
+                  <i class="fas fa-plus-circle"></i>新規スシ投稿
+                <% end %>
+              </li>
+              <li>
+                <%= link_to favorites_public_end_user_path(current_end_user.id), class:"nav-link text-light" do %>
+                  <i class="fas fa-thumbs-up"></i>タベタイスシ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to public_dictionarys_path, class:"nav-link text-light" do %>
+                  <i class="fas fa-book-open"></i>スシ辞典
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_end_user_session_path, method: :delete, class:"nav-link text-light" do %>
+                  <i class="fas fa-sign-out-alt"></i> Log out
+                <% end %>
+              </li>
+          <% elsif admin_signed_in? %>
+            <ul style="list-style: none;">
+              <li>
+                <%= link_to 'ユーザー一覧', admin_end_users_path, class:"nav-link text-light" %>
+              </li>
+              <li>
+                <%= link_to '投稿一覧', admin_post_sushis_path, class:"nav-link text-light" %>
+              </li>
+              <li>
+                <%= link_to 'スシ辞典一覧', admin_dictionarys_path, class:"nav-link text-light" %>
+              </li>
+              <li>
+                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link text-light" %>
+              </li>
+              </ul>
+          <% else %>
+            <ul style="list-style: none;">
+              <li>
+                <%= link_to end_users_guest_sign_in_path, method: :post, class:"nav-link text-light" do %>
+                  <i class="fas fa-user-alt"></i>ゲストログイン<br>&emsp; (閲覧用)
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_end_user_session_path, class:"nav-link text-light" do %>
+                  <i class="fas fa-sign-in-alt"></i>ログイン
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_end_user_registration_path, class:"nav-link text-light" do %>
+                  <i class="fas fa-plus-circle"></i>新規登録
+                <% end %>
+              </li>
+            </ul>
+          <% end %>
           </div>
         </div>
       </div>
 
-        <div class= "col-md-10 mt-3">
-        <%= yield %>
-        </div>
+      <div class= "col-md-10 mt-3">
+         <%= yield %>
       </div>
-    </main>
+    </div>
+  </main>
 
 
     <footer id="footer">

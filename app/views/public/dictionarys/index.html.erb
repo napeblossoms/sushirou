@@ -1,67 +1,66 @@
 <div class="container">
-<div class="row">
-  <div class="col-lg-3">
-  <% if @dictionary.errors.any? %>
-   <%= @dictionary.errors.count %>件のエラーが発生しました
-   <ul>
-    <% @dictionary.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-   </ul>
-  <% end %>
-   <div class="balloon-2">
-    <h5 class="title">食べたスシを<br>辞典に追加する</h5>
-    <%= form_with model: @dictionary, url: public_dictionarys_path, method: :post do |f| %>
-    <div class="form-group">
-       <%= f.label :食べた季節 %><br>
-       <%= f.select :season, [["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], {include_blank: "選択して下さい"}, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-       <%= f.label :ネタの名前 %><br>
-       <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-       <%= f.label :メモ %><br>
-       <%= f.text_area :body, class: 'form-control' %>
-    </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <% if @dictionary.errors.any? %>
+        <%= @dictionary.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @dictionary.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
 
-    <div class="dic">
-      <%= f.submit '投稿' %>
+      <div class="balloon-2">
+        <h5 class="title">食べたスシを<br>辞典に追加する</h5>
+        <%= form_with model: @dictionary, url: public_dictionarys_path, method: :post do |f| %>
+          <div class="form-group">
+            <%= f.label :食べた季節 %><br>
+            <%= f.select :season, [["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], {include_blank: "選択して下さい"}, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :ネタの名前 %><br>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :メモ %><br>
+            <%= f.text_area :body, class: 'form-control' %>
+          </div>
+          <div class="dic">
+            <%= f.submit '投稿' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <% end %>
-    </div>
-  </div>
 
     <div class="col-lg-9">
       <%= form_tag(public_dictionarys_path , method: :get) do %>
-
         <%= select(@search_content, :search_method, [["全部", "全部"],["春", "春"], ["夏", "夏"], ["秋", "秋"], ["冬", "冬"]], include_blank: "旬のスシを検索") %>
         <button class="btn btn-default btn-primary btn-sm" type="submit"><i class="fa fa-search"></i> </button>
       <% end %>
       <div class="dictionary mt-2">
-      <table class='table table-hover table-inverse table-light'>
-        <thead class= "thead-light">
-          <tr>
-            <th>旬</th>
-            <th>ネタ</th>
-            <th>メモ</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @dictionarys.each do |dictionary| %>
-         <tr>
-           <td><%= dictionary.season %></td>
-           <td>
-             <%= link_to public_dictionary_path(dictionary.id) do %>
-              <%= dictionary.name %>
-             <% end %>
-           </td>
-           <td><%= dictionary.body %></td>
-         </tr>
-        </tbody>
-       <% end %>
-      </table>
+        <table class='table table-hover table-inverse table-light'>
+          <thead class= "thead-light">
+            <tr>
+              <th>旬</th>
+              <th>ネタ</th>
+              <th>メモ</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @dictionarys.each do |dictionary| %>
+            <tr>
+              <td><%= dictionary.season %></td>
+              <td>
+                <%= link_to public_dictionary_path(dictionary.id) do %>
+                <%= dictionary.name %>
+                <% end %>
+              </td>
+              <td><%= dictionary.body %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
       </div>
     </div>
   </div>

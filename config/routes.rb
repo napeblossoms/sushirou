@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #管理者
   devise_for :admin, skip: [:registrations, :passwords],controllers: { #registrationを除外して、新規登録するページを無く
-      sessions: "admin/sessions"
+    sessions: "admin/sessions"
   }
 
   #エンドユーザー
@@ -9,37 +9,37 @@ Rails.application.routes.draw do
 
   #ゲストログイン
   devise_scope :end_user do
-      post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
+    post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
   end
 
   root to: "homes#top"
-  get '/about' => 'homes#about' , as: 'about'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :public do
    resources :dictionarys, only: [:new, :create, :index, :edit, :show, :update, :destroy]
-   resources :post_sushis, only: [:new, :create, :index, :edit, :show, :update, :destroy] do
+   resources :post_sushis, only: [:new, :create, :index, :show, :destroy] do
      resources :post_comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
-    #   get 'followed_post_sushis' => 'post_sushis#followed_post_sushis', as: 'followed_post_sushis'
+
       member do
-         get :followings #フォローした人の投稿一覧
+        get :followings #フォローした人の投稿一覧
       end
 
       collection do
-         get :search
+        get :search
       end
    end
 
    resources :end_users, only: [:edit, :show, :update] do
-     get '/end_users/:id/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
-     patch '/end_users/:id/withdrawal' => 'end_users#withdrawal', as: 'withdrawal'
-     resource :relationships, only: [:create, :destroy]
-       get 'followings' => 'relationships#followings', as: 'followings'
-       get 'followers' => 'relationships#followers', as: 'followers'
+    get '/end_users/:id/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
+    patch '/end_users/:id/withdrawal' => 'end_users#withdrawal', as: 'withdrawal'
+    resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
 
-     member do #いいねした投稿一覧
-         get :favorites
-     end
+    member do #いいねした投稿一覧
+        get :favorites
+    end
    end
   end
 
