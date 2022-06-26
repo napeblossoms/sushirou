@@ -4,7 +4,7 @@ class Public::EndUsersController < ApplicationController
   before_action :ensure_guest_end_user, only: [:edit]
   def show
     @end_user = EndUser.find(params[:id])
-    @post_sushis = @end_user.post_sushis
+    @post_sushis = @end_user.post_sushis.order('created_at desc')#投稿順にする
 
   end
 
