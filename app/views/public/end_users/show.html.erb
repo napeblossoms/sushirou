@@ -47,7 +47,14 @@
           </tbody>
         </table>
       </div>
+      <div class ="search text-right"><!--ユーザー検索-->
+        <%= form_with url: search_public_end_users_path, method: :get, local: true do |f| %>
+          <%= f.text_field :name, placeholder: "ユーザーを探す" %>
+          <button class="btn btn-default btn-primary btn-sm" type="submit"><i class="fa fa-search"></i> </button>
+        <% end %>
+      </div>
     <% end %>
+
   </div>
 </div>
 

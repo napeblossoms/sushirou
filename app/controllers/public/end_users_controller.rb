@@ -36,6 +36,14 @@ class Public::EndUsersController < ApplicationController
   def unsubscribe
     @end_user = EndUser.find(params[:id])
   end
+  
+  def search
+    if params[:name].present?
+      @end_users = EndUser.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @end_users = EndUser.none
+    end
+  end
 
   private
 
