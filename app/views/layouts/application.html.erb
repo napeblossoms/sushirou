@@ -103,6 +103,9 @@
       </div>
 
       <div class= "col-md-10 mt-3">
+          <div class="notifications">
+            <%= flash[:notice] %>
+          </div>
          <%= yield %>
       </div>
     </div>
