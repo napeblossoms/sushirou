@@ -16,7 +16,7 @@ class Public::PostSushisController < ApplicationController
     @post_sushi = PostSushi.new(post_sushi_params)
     @post_sushi.end_user_id = current_end_user.id
     if @post_sushi.save
-      redirect_to public_post_sushis_path
+      redirect_to public_post_sushis_path, notice: 'スシ投稿に成功しました！'
     else
       render :new
     end
