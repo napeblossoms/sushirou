@@ -26,12 +26,12 @@
 
         <div class="form-group">
          <%= f.label :region, "地方" %>
-         <%= f.select :region_cont, PostSushi.regions.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
+         <%= f.select :region_eq, PostSushi.regions.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
         </div>
 
         <div class="form-group">
          <%= f.label :prefecture, "都道府県" %>
-       　 <%= f.select :prefecture_cont, PostSushi.prefectures.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
+       　 <%= f.select :prefecture_eq, PostSushi.prefectures.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
 
         <div class="form-group">
@@ -41,17 +41,17 @@
 
         <div class="form-group">
          <%= f.label :lunch_dinner, "ランチorディナー" %>
-       　<%= f.select :lunch_dinner_cont, PostSushi.lunch_dinners.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
+       　<%= f.select :lunch_dinner_eq, PostSushi.lunch_dinners.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
 
         <div class="form-group">
          <%= f.label :price, "一人当たりの金額" %>
-       　<%= f.select :price_cont, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
+       　<%= f.select :price_eq, PostSushi.prices.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control' %>
         </div>
 
         <div class="form-group">
          <%= f.label :atmosphere, "お店の雰囲気" %>
-       　 <%= f.select :atmosphere_cont, PostSushi.atmospheres.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
+       　 <%= f.select :atmosphere_eq, PostSushi.atmospheres.map { |k, v| [k, v] }, { include_blank: '指定なし' } ,class: 'form-control'%>
         </div>
       </div>
 

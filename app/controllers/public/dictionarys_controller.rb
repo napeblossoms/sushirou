@@ -9,7 +9,7 @@ class Public::DictionarysController < ApplicationController
     @dictionarys = Dictionary.all
     @dictionary = Dictionary.new(dictionary_params)
     if @dictionary.save
-      redirect_to public_dictionarys_path
+      redirect_to public_dictionarys_path, notice: '投稿に成功しました！'
     else
       render :index
     end

@@ -103,6 +103,9 @@
       </div>
 
       <div class= "col-md-10 mt-3">
+          <div class="notifications">
+            <%= flash[:notice] %>
+          </div>
          <%= yield %>
       </div>
     </div>
@@ -114,7 +117,11 @@
         <div class="row">
           <div class ="mx-auto">
             <p id="page-top"><a href="#">Page Top</a></p>
-            <p class="footer-text"><%= link_to "© 2022 Sushirou! from Meta", admin_session_path %></p>
+            <% if end_user_signed_in? %>
+              <p class="footer-text">© 2022 Sushirou! from Meta</p>
+            <% else %>
+              <p class="footer-text"><%= link_to "© 2022 Sushirou! from Meta", admin_session_path %></p>
+            <% end %>
           </div>
         </div>
       </div>
