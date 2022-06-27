@@ -1,38 +1,34 @@
 <div class="col-xs-12 ">
-      <h4><%="#{@end_user.name}さんの会員情報編集"%></h4>
-
-   <%= form_with(model:@end_user, url:admin_end_user_path,method: :patch) do |f| %>
+  <h4><%="#{@end_user.name}さんの会員情報編集"%></h4>
+    <%= form_with(model:@end_user, url:admin_end_user_path,method: :patch) do |f| %>
       <table class="table">
         <tbody>
-         <tr>
-      		<td>会員ID</td>
-      		<td><%=@end_user.id %></td>
-         </tr>
-	      <tr>
-		      <td>氏名</td>
-		      <td><%=@end_user.name%></td>
-	      </tr>
-	      <tr>
-		      <td>メールアドレス</td>
-		      <td><%= @end_user.email %></td>
-	      </tr>
-        
-        <tr>
-          <td><%= f.label :"会員ステータス" %></td>
-        　<td>
-        　  <%= f.radio_button :is_deleted, true %>
-        　 <%= f.label :is_deleted, "退会済", {value: :true, style: "display: inline-block;"} %>
-         　<%= f.radio_button :is_deleted, false %>
-         　<%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
-        　</td>
-        　
-
-        <br>
-        <tr>
-          <td></td>
-          <td><%= f.submit "変更を保存", class: "btn btn-success save " %></td>
+          <tr>
+        		<td>会員ID</td>
+      		  <td><%=@end_user.id %></td>
+          </tr>
+	        <tr>
+		        <td>氏名</td>
+		        <td><%=@end_user.name%></td>
+	        </tr>
+	        <tr>
+		        <td>メールアドレス</td>
+		        <td><%= @end_user.email %></td>
+	        </tr>
+          <tr>
+            <td><%= f.label :"会員ステータス" %></td>
+        　   <td>
+          　   <%= f.radio_button :is_deleted, true %>
+          　   <%= f.label :is_deleted, "退会済", {value: :true, style: "display: inline-block;"} %>
+           　  <%= f.radio_button :is_deleted, false %>
+           　  <%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "変更を保存", class: "btn btn-success save " %></td>
           </tr>
         </tbody>
       </table>
-      <%end%>
-    </div>
+    <%end%>
+  </div>
