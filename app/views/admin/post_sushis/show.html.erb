@@ -1,66 +1,65 @@
 <!--寿司投稿詳細-->
 <div class="container">
- <div class="row mt-2">
-  <div class="col-lg-4 m-0 p-0">
-    <div class="card w-100 mb-4">
-      <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
-      <div class="card-body">
-        <h5 class="card-title text-center">
+  <div class="row mt-2">
+    <div class="col-lg-4 m-0 p-0">
+      <div class="card w-100 mb-4">
+        <%= image_tag @post_sushi.get_image, class: 'sushi-img' %>
+        <div class="card-body">
+          <h5 class="card-title text-center">
             <strong><%= @post_sushi.name %></strong>
-        </h5>
-        <div class="place text-center">
-          <h6 class= "title"><i class="fas fa-map-marker-alt"></i>場所</h6>
-          <p class="card-text1"><%= @post_sushi.region %>地方</p>
-          <p class="card-text2"><%= @post_sushi.prefecture %></p>
-          <p class="card-text2"><%= @post_sushi.municipalities %></p>
-        </div>
-        <div class="lunch text-center">
-          <h6 class= "title"><i class="fas fa-utensils"></i>ランチorディナー</h6>
-          <p class="card-text2"><%= @post_sushi.lunch_dinner %></p>
-        </div>
-        <div class="price text-center">
-          <h6 class= "title"><i class="fas fa-comment-dollar"></i>一人あたりの値段</h6>
-          <p class="card-text2"><%= @post_sushi.price %></p>
-        </div>
-        <div class="atmosphere text-center">
-          <h6 class= "title"><i class="fas fa-bookmark"></i>お店の雰囲気</h6>
-          <p class="card-text2"><%= @post_sushi.atmosphere %></p>
-        </div>
-        <div class="memo text-center">
-          <h6 class= "title"><i class="fas fa-book-open"></i>メモ</h6>
-          <p class="card-text2"><%= @post_sushi.memo %></p>
-        </div>
-        <div class= "user text-center">
-          <p>by<%= image_tag @post_sushi.end_user.get_profile_image, width: "20%",height: "20%",class:"mt-3 rounded-circle"; %>
-              <%= @post_sushi.end_user.name %>
-          </p>
-            <!--投稿の削除-->
-           <%= link_to "投稿を削除", admin_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm btn-block", data: {confirm: "本当に削除しますか？"} %>
-       </div>
-      </div>
-     </div>
-   </div>
-
-   <div class="col-lg-8 m-0 p-0">
-    <div class="card w-100 mb-4" style="background-color: #99FFFF;">
-       <%= image_tag "sushi.png", class:"sushi-img" %>
-      <div class="card-body">
-
-        <!--コメント一覧-->
-       <div class= "comment">
-       <% @post_sushi.post_comments.each do |post_comment| %>
-         <%= image_tag @post_sushi.end_user.get_profile_image, width: "10%",height: "10%",class:"mt-3 rounded-circle"; %><%= post_comment.end_user.name %>
-          <div class="balloon">
-           　<%= post_comment.comment %>
-            <div class="balloon-text text-right">
-             <%= link_to "コメント削除",  admin_post_sushi_post_comment_path(post_comment.post_sushi, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
-           　 <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-            </div>
+          </h5>
+          <div class="place text-center">
+            <h6 class= "title"><i class="fas fa-map-marker-alt"></i>場所</h6>
+            <p class="card-text1"><%= @post_sushi.region %>地方</p>
+            <p class="card-text2"><%= @post_sushi.prefecture %></p>
+            <p class="card-text2"><%= @post_sushi.municipalities %></p>
           </div>
-       <% end %>
-       </div>
+          <div class="lunch text-center">
+            <h6 class= "title"><i class="fas fa-utensils"></i>ランチorディナー</h6>
+            <p class="card-text2"><%= @post_sushi.lunch_dinner %></p>
+          </div>
+          <div class="price text-center">
+            <h6 class= "title"><i class="fas fa-comment-dollar"></i>一人あたりの値段</h6>
+            <p class="card-text2"><%= @post_sushi.price %></p>
+          </div>
+          <div class="atmosphere text-center">
+            <h6 class= "title"><i class="fas fa-bookmark"></i>お店の雰囲気</h6>
+            <p class="card-text2"><%= @post_sushi.atmosphere %></p>
+          </div>
+          <div class="memo text-center">
+            <h6 class= "title"><i class="fas fa-book-open"></i>メモ</h6>
+            <p class="card-text2"><%= @post_sushi.memo %></p>
+          </div>
+          <div class= "user text-center">
+            <p>by<%= image_tag @post_sushi.end_user.get_profile_image, width: "20%",height: "20%",class:"mt-3 rounded-circle"; %>
+              <%= @post_sushi.end_user.name %>
+            </p>
+            <!--投稿の削除-->
+            <%= link_to "投稿を削除", admin_post_sushi_path(@post_sushi), method: :delete, class:"btn btn-danger btn-sm btn-block", data: {confirm: "本当に削除しますか？"} %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8 m-0 p-0">
+      <div class="card w-100 mb-4" style="background-color: #99FFFF;">
+        <%= image_tag "sushi.png", class:"sushi-img" %>
+        <div class="card-body">
+          <!--コメント一覧-->
+          <div class= "comment">
+          <% @post_sushi.post_comments.each do |post_comment| %>
+            <%= image_tag @post_sushi.end_user.get_profile_image, width: "10%",height: "10%",class:"mt-3 rounded-circle"; %><%= post_comment.end_user.name %>
+            <div class="balloon">
+            <%= post_comment.comment %>
+              <div class="balloon-text text-right">
+                <%= link_to "コメント削除",  admin_post_sushi_post_comment_path(post_comment.post_sushi, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+              </div>
+            </div>
+          <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
- </div>
 </div>

@@ -1,8 +1,6 @@
 <h4>-検索結果-</h4>
- <% if @results.exists? %>
-   <%= render 'post', post_sushis: @results %>
- <% else %>
-      <p>該当の検索結果はありません</p>
- <% end %>
-
-
+  <% if @results.exists? %>
+    <%= render 'post', post_sushis: @results %>
+  <% else %>
+    <p>該当の検索結果はありません</p>
+  <% end %>
