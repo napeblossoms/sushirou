@@ -16,10 +16,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :public do
-   resources :dictionarys, only: [:new, :create, :index, :edit, :show, :update, :destroy]
-   resources :post_sushis, only: [:new, :create, :index, :show, :destroy] do
-     resources :post_comments, only: [:create, :destroy]
-     resource :favorites, only: [:create, :destroy]
+    resources :dictionarys, only: [:new, :create, :index, :edit, :show, :update]
+    resources :post_sushis, only: [:new, :create, :index, :show, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
 
       member do
         get :followings #フォローした人の投稿一覧
