@@ -30,7 +30,7 @@
  - 寿司好きと交流して情報交換をしたいとき
 
 
-##アプリケーション設計 
+## アプリケーション設計
 - ER図
 　https://app.diagrams.net/#G1_s9crGBsIHwxZ6x0FLtA5hH49rtZt4HB
 - テーブル定義書
