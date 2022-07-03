@@ -30,6 +30,14 @@
  - 寿司好きと交流して情報交換をしたいとき
 
 
+##アプリケーション設計 
+- ER図
+　https://app.diagrams.net/#G1_s9crGBsIHwxZ6x0FLtA5hH49rtZt4HB
+- テーブル定義書
+　https://docs.google.com/spreadsheets/d/1vD8vL_Mb4WcgAoEULYMLhFul5U_huKI40SBUIKe5Xqc/edit?usp=sharing
+- アプリケーション詳細設計
+　https://docs.google.com/spreadsheets/d/102nYRq8VtSJUae8TepkkjSvtkaRfe11A8U_1PCMdgO8/edit?usp=sharing
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
